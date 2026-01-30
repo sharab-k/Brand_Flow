@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - Report an Issue</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 flex-shrink-0 z-50 sticky top-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-10">
+                        <a href="/" class="flex-shrink-0 flex items-center gap-2">
+                            <img src="/donau-logo.png" alt="DonauAI" class="h-8">
+                        </a>
+                        <nav class="hidden md:flex gap-8">
+                            <a href="dashboard.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Home</a>
+                             <a href="help-center.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Help Center</a>
+                            <a href="report-issue.html" class="text-red-600 font-medium text-sm">Report Issue</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow w-full bg-slate-50">
+             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                 <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                     <div class="text-center mb-8">
+                         <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center text-red-500 mx-auto mb-4">
+                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                         </div>
+                         <h1 class="text-2xl font-bold text-slate-900">Report a Technical Issue</h1>
+                         <p class="text-slate-500 mt-2">Found a bug? Let us know so we can fix it.</p>
+                     </div>
+                     
+                     <form class="space-y-6">
+                         <div>
+                             <label class="block text-sm font-medium text-slate-700 mb-2">Issue Type</label>
+                             <select class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                                 <option>Bug Report</option>
+                                 <option>Security Vulnerability</option>
+                                 <option>Performance Issue</option>
+                                 <option>Other</option>
+                             </select>
+                         </div>
+                         
+                         <div>
+                             <label class="block text-sm font-medium text-slate-700 mb-2">Where is the issue occurring?</label>
+                             <input type="text" placeholder="e.g., Dashboard > Recent Briefs" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                         </div>
+                         
+                         <div>
+                             <label class="block text-sm font-medium text-slate-700 mb-2">Description & Steps to Reproduce</label>
+                             <textarea rows="5" placeholder="1. Go to..." class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"></textarea>
+                         </div>
+
+                          <div>
+                             <label class="block text-sm font-medium text-slate-700 mb-2">Severity</label>
+                             <div class="flex gap-4">
+                                 <label class="flex items-center gap-2 cursor-pointer">
+                                     <input type="radio" name="severity" class="text-red-600 focus:ring-red-500">
+                                     <span class="text-sm text-slate-700">Low</span>
+                                 </label>
+                                 <label class="flex items-center gap-2 cursor-pointer">
+                                     <input type="radio" name="severity" class="text-red-600 focus:ring-red-500">
+                                     <span class="text-sm text-slate-700">Medium</span>
+                                 </label>
+                                 <label class="flex items-center gap-2 cursor-pointer">
+                                     <input type="radio" name="severity" class="text-red-600 focus:ring-red-500">
+                                     <span class="text-sm text-slate-700">High</span>
+                                 </label>
+                                 <label class="flex items-center gap-2 cursor-pointer">
+                                     <input type="radio" name="severity" class="text-red-600 focus:ring-red-500">
+                                     <span class="text-sm text-slate-700">Critical</span>
+                                 </label>
+                             </div>
+                         </div>
+                         
+                         <button type="button" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition-colors">Submit Report</button>
+                     </form>
+                 </div>
+             </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-12 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 text-sm">
+                <div class="col-span-1">
+                  <img src="/donau-logo.png" alt="DonauAI" class="h-8 mb-4" />
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    AI-powered platform connecting brands with manufacturers
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
+                    <li>
+                      <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
+                    </li>
+                    <li>
+                      <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li>
+                      <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
+                    </li>
+                    <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
+                    <li>
+                      <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
+                    </li>
+                    <li>
+                      <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+                    <li>
+                      <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
+                    <li>
+                      <a href="support.html" class="hover:text-blue-600">Contact Support</a>
+                    </li>
+                    <li>
+                      <a href="status.html" class="hover:text-blue-600">System Status</a>
+                    </li>
+                    <li>
+                      <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
+              >
+                <p>&copy; 2026 DonauApp</p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <div class="flex gap-4">
+                         <span>English</span> <span>EUR</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

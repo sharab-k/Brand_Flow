@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - System Status</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 flex-shrink-0 z-50 sticky top-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-10">
+                        <a href="/" class="flex-shrink-0 flex items-center gap-2">
+                            <img src="/donau-logo.png" alt="DonauAI" class="h-8">
+                        </a>
+                        <nav class="hidden md:flex gap-8">
+                            <a href="dashboard.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Home</a>
+                             <a href="support.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Support</a>
+                            <a href="status.html" class="text-green-600 font-medium text-sm">System Status</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow w-full bg-slate-50">
+             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                 
+                 <!-- Overall Status -->
+                 <div class="bg-green-600 rounded-xl p-8 text-white mb-8 shadow-lg shadow-green-200">
+                     <div class="flex items-center gap-4 mb-2">
+                         <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                         <h1 class="text-2xl font-bold">All Systems Operational</h1>
+                     </div>
+                     <p class="text-green-50 opacity-90">Last updated: <span id="last-updated">Just now</span></p>
+                 </div>
+                 
+                 <!-- Components -->
+                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden mb-8">
+                     <div class="p-6 border-b border-gray-100 font-bold text-slate-900 flex justify-between items-center">
+                         <span>Platform Components</span>
+                         <span class="text-xs font-normal text-slate-500 bg-gray-100 px-2 py-1 rounded">Uptime 99.99%</span>
+                     </div>
+                     <div class="divide-y divide-gray-50">
+                         <!-- Item -->
+                         <div class="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                             <span class="font-medium text-slate-700">API Gateway</span>
+                             <span class="text-green-600 text-sm font-bold flex items-center gap-2">
+                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                 Operational
+                             </span>
+                         </div>
+                          <!-- Item -->
+                         <div class="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                             <span class="font-medium text-slate-700">Brief Generation Engine (AI)</span>
+                             <span class="text-green-600 text-sm font-bold flex items-center gap-2">
+                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                 Operational
+                             </span>
+                         </div>
+                          <!-- Item -->
+                         <div class="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                             <span class="font-medium text-slate-700">Manufacturer Matching</span>
+                             <span class="text-green-600 text-sm font-bold flex items-center gap-2">
+                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                 Operational
+                             </span>
+                         </div>
+                          <!-- Item -->
+                         <div class="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                             <span class="font-medium text-slate-700">Messaging System</span>
+                             <span class="text-green-600 text-sm font-bold flex items-center gap-2">
+                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                 Operational
+                             </span>
+                         </div>
+                          <!-- Item -->
+                         <div class="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                             <span class="font-medium text-slate-700">Payments & Billing</span>
+                             <span class="text-green-600 text-sm font-bold flex items-center gap-2">
+                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                 Operational
+                             </span>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <!-- Past Incidents -->
+                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                     <div class="p-6 border-b border-gray-100 font-bold text-slate-900">
+                         Past Incidents
+                     </div>
+                     <div class="p-8 text-center text-slate-500 text-sm">
+                         No incidents reported in the last 30 days.
+                     </div>
+                 </div>
+             </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-12 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 text-sm">
+                <div class="col-span-1">
+                  <img src="/donau-logo.png" alt="DonauAI" class="h-8 mb-4" />
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    AI-powered platform connecting brands with manufacturers
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
+                    <li>
+                      <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
+                    </li>
+                    <li>
+                      <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li>
+                      <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
+                    </li>
+                    <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
+                    <li>
+                      <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
+                    </li>
+                    <li>
+                      <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+                    <li>
+                      <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
+                    <li>
+                      <a href="support.html" class="hover:text-blue-600">Contact Support</a>
+                    </li>
+                    <li>
+                      <a href="status.html" class="hover:text-blue-600">System Status</a>
+                    </li>
+                    <li>
+                      <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
+              >
+                <p>&copy; 2026 DonauApp</p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <div class="flex gap-4">
+                         <span>English</span> <span>EUR</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+    </script>
+  </body>
+</html>

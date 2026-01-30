@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - Product Categories</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 flex-shrink-0 z-50 sticky top-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-10">
+                        <a href="/" class="flex-shrink-0 flex items-center gap-2">
+                            <img src="/donau-logo.png" alt="DonauAI" class="h-8">
+                        </a>
+                        <nav class="hidden md:flex gap-8">
+                            <a href="dashboard.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Home</a>
+                             <a href="ai-brief-assistant.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">For Brands</a>
+                            <a href="product-categories.html" class="text-blue-600 font-medium text-sm">Categories</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow w-full">
+            <!-- Hero Section -->
+            <section class="bg-white py-16 border-b border-gray-100 text-center">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Explore Production Capabilities</h1>
+                    <p class="text-slate-500 text-lg">From niche artisan goods to mass-market electronics, find the right partner for your category.</p>
+                </div>
+            </section>
+
+             <!-- Categories Grid -->
+            <section class="py-16 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                         <!-- Category 1 -->
+                         <a href="#" class="group block bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                             <div class="h-40 bg-pink-100 flex items-center justify-center text-pink-500">
+                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                             </div>
+                             <div class="p-6">
+                                 <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Cosmetics</h3>
+                                 <p class="text-xs text-slate-500">Skincare, Makeup, Perfume</p>
+                             </div>
+                         </a>
+                         <!-- Category 2 -->
+                         <a href="#" class="group block bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                             <div class="h-40 bg-orange-100 flex items-center justify-center text-orange-500">
+                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                             </div>
+                             <div class="p-6">
+                                 <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Fashion</h3>
+                                 <p class="text-xs text-slate-500">Apparel, Accessories, Footwear</p>
+                             </div>
+                         </a>
+                         <!-- Category 3 -->
+                         <a href="#" class="group block bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                             <div class="h-40 bg-blue-100 flex items-center justify-center text-blue-500">
+                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                             </div>
+                             <div class="p-6">
+                                 <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Electronics</h3>
+                                 <p class="text-xs text-slate-500">Consumer Tech, Components</p>
+                             </div>
+                         </a>
+                         <!-- Category 4 -->
+                         <a href="#" class="group block bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                             <div class="h-40 bg-green-100 flex items-center justify-center text-green-500">
+                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                             </div>
+                             <div class="p-6">
+                                 <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Home & Living</h3>
+                                 <p class="text-xs text-slate-500">Furniture, Decor, Kitchen</p>
+                             </div>
+                         </a>
+                         <!-- Reused categories to fill grid -->
+                         <a href="#" class="group block bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                             <div class="h-40 bg-purple-100 flex items-center justify-center text-purple-500">
+                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                             </div>
+                             <div class="p-6">
+                                 <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Chemicals</h3>
+                                 <p class="text-xs text-slate-500">Industrial, Cleaning</p>
+                             </div>
+                         </a>
+                         <a href="#" class="group block bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                             <div class="h-40 bg-yellow-100 flex items-center justify-center text-yellow-600">
+                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                             </div>
+                             <div class="p-6">
+                                 <h3 class="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Packaging</h3>
+                                 <p class="text-xs text-slate-500">Boxes, Bottles, Labels</p>
+                             </div>
+                         </a>
+                     </div>
+                     <div class="text-center mt-12">
+                         <p class="text-slate-500 mb-4">Don't see your category?</p>
+                         <a href="contact.html" class="text-blue-600 font-bold hover:underline">Contact sales to request a new category</a>
+                     </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-12 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 text-sm">
+                <div class="col-span-1">
+                  <img src="/donau-logo.png" alt="DonauAI" class="h-8 mb-4" />
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    AI-powered platform connecting brands with manufacturers
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
+                    <li>
+                      <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
+                    </li>
+                    <li>
+                      <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li>
+                      <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
+                    </li>
+                    <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
+                    <li>
+                      <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
+                    </li>
+                    <li>
+                      <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+                    <li>
+                      <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
+                    <li>
+                      <a href="support.html" class="hover:text-blue-600">Contact Support</a>
+                    </li>
+                    <li>
+                      <a href="status.html" class="hover:text-blue-600">System Status</a>
+                    </li>
+                    <li>
+                      <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
+              >
+                <p>&copy; 2026 DonauApp</p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <div class="flex gap-4">
+                         <span>English</span> <span>EUR</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

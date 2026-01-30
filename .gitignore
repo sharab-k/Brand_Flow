@@ -1,0 +1,4 @@
+Client Notes*
+node_modules/
+.DS_Store
+dist/

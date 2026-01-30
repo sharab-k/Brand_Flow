@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - FAQ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 flex-shrink-0 z-50 sticky top-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-10">
+                        <a href="/" class="flex-shrink-0 flex items-center gap-2">
+                            <img src="/donau-logo.png" alt="DonauAI" class="h-8">
+                        </a>
+                        <nav class="hidden md:flex gap-8">
+                            <a href="dashboard.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Home</a>
+                             <a href="help-center.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Help Center</a>
+                            <a href="faq.html" class="text-blue-600 font-medium text-sm">FAQ</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow w-full">
+            <!-- Hero -->
+            <section class="bg-white py-16 border-b border-gray-100 text-center">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h1>
+                    <p class="text-slate-500">Everything you need to know about DonauAI.</p>
+                </div>
+            </section>
+
+             <!-- FAQ Accordion -->
+            <section class="py-16 bg-slate-50">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <div class="space-y-4" x-data="{ active: null }">
+                         
+                         <!-- Item 1 -->
+                         <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+                             <button @click="active === 1 ? active = null : active = 1" class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                                 <span class="font-bold text-slate-900">How does the AI Brief Assistant work?</span>
+                                 <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="active === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </button>
+                             <div x-show="active === 1" class="px-6 pb-6 text-slate-500 text-sm leading-relaxed" x-transition>
+                                 Our AI Brief Assistant asks you a series of dynamic questions about your product idea. It then uses industry data to fill in technical gaps (like material standards or tolerance levels) to create a professional-grade specification document that manufacturers can instantly quote on.
+                             </div>
+                         </div>
+                         
+                         <!-- Item 2 -->
+                         <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+                             <button @click="active === 2 ? active = null : active = 2" class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                                 <span class="font-bold text-slate-900">Is DonauAI free for brands?</span>
+                                 <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="active === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </button>
+                             <div x-show="active === 2" class="px-6 pb-6 text-slate-500 text-sm leading-relaxed" x-transition>
+                                 It's free to create an account and generate initial briefs. We charge a small service fee upon successful project initiation with a manufacturer. We also offer premium subscriptions for advanced AI features and priority support.
+                             </div>
+                         </div>
+                         
+                         <!-- Item 3 -->
+                         <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+                             <button @click="active === 3 ? active = null : active = 3" class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                                 <span class="font-bold text-slate-900">How do you vet manufacturers?</span>
+                                 <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="active === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </button>
+                             <div x-show="active === 3" class="px-6 pb-6 text-slate-500 text-sm leading-relaxed" x-transition>
+                                 We have a rigorous 5-step verification process including document verification (ISO certifications, business licenses), virtual factory tours, and credit checks. Only top-tier manufacturers are accepted into the network.
+                             </div>
+                         </div>
+
+                         <!-- Item 4 -->
+                         <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+                             <button @click="active === 4 ? active = null : active = 4" class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none">
+                                 <span class="font-bold text-slate-900">What if I'm unhappy with the production quality?</span>
+                                 <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="active === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </button>
+                             <div x-show="active === 4" class="px-6 pb-6 text-slate-500 text-sm leading-relaxed" x-transition>
+                                 DonauAI creates a digital contract based on the technical brief. If the delivered goods do not meet these specifications, our dispute resolution team steps in. We also hold payments in escrow until milestones are verified.
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-12 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 text-sm">
+                <div class="col-span-1">
+                  <img src="/donau-logo.png" alt="DonauAI" class="h-8 mb-4" />
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    AI-powered platform connecting brands with manufacturers
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
+                    <li>
+                      <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
+                    </li>
+                    <li>
+                      <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li>
+                      <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
+                    </li>
+                    <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
+                    <li>
+                      <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
+                    </li>
+                    <li>
+                      <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+                    <li>
+                      <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
+                    <li>
+                      <a href="support.html" class="hover:text-blue-600">Contact Support</a>
+                    </li>
+                    <li>
+                      <a href="status.html" class="hover:text-blue-600">System Status</a>
+                    </li>
+                    <li>
+                      <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
+              >
+                <p>&copy; 2026 DonauApp</p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <div class="flex gap-4">
+                         <span>English</span> <span>EUR</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <!-- Alpine for simple interactivity without build steps for this page -->
+  </body>
+</html>

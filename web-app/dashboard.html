@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - Dashboard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-white text-slate-800 antialiased font-sans">
+    <div id="app">
+      <!-- Header -->
+      <!-- Header -->
+      <header class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 transition-all duration-300 supports-[backdrop-filter]:bg-white/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo & Nav -->
+            <div class="flex items-center gap-10">
+              <a href="/" class="flex-shrink-0 flex items-center gap-2">
+                <img src="/donau-logo.png" alt="DonauAI" class="h-8" />
+              </a>
+              <nav class="hidden md:flex gap-8">
+                <a
+                  href="#"
+                  class="text-blue-600 font-medium text-sm flex items-center gap-2 border-b-2 border-blue-600 pb-[19px] mt-[19px]"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    ></path>
+                  </svg>
+                  Dashboard
+                </a>
+                <a
+                  href="briefs.html"
+                  class="text-slate-500 hover:text-slate-900 font-medium text-sm flex items-center gap-2"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                  My Briefs
+                </a>
+                <a
+                  href="messages.html"
+                  class="text-slate-500 hover:text-slate-900 font-medium text-sm flex items-center gap-2"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                    ></path>
+                  </svg>
+                  Messages
+                </a>
+              </nav>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-4">
+              <button class="bg-blue-600 text-white p-1 rounded-full">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v16m8-8H4"
+                  ></path>
+                </svg>
+              </button>
+                <a href="help-center.html" class="text-slate-400 hover:text-slate-600">
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </a>
+                        <div class="relative">
+                            <button
+                                id="notification-button"
+                                class="text-slate-400 hover:text-slate-600 relative focus:outline-none"
+                            >
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                                <span class="absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-white bg-red-500"></span>
+                            </button>
+                            <!-- Notification Dropdown -->
+                            <div
+                                id="notification-menu"
+                                class="hidden absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg py-1 border border-gray-100 z-50 transform origin-top-right transition-all"
+                            >
+                                <div class="px-4 py-3 border-b border-gray-50 flex justify-between items-center">
+                                    <p class="text-sm font-bold text-slate-900">Notifications</p>
+                                    <span class="text-xs text-blue-600 font-medium cursor-pointer hover:underline">Mark all read</span>
+                                </div>
+                                <div class="max-h-64 overflow-y-auto">
+                                    <a href="briefs.html" class="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50">
+                                        <div class="flex gap-3">
+                                            <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium text-slate-900">Brief Approved</p>
+                                                <p class="text-xs text-slate-500 mt-0.5">Your "Summer Collection" brief has been approved.</p>
+                                                <p class="text-[10px] text-slate-400 mt-1">2 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="messages.html" class="block px-4 py-3 hover:bg-gray-50 transition-colors bg-blue-50/30">
+                                        <div class="flex gap-3">
+                                            <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium text-slate-900">New Message</p>
+                                                <p class="text-xs text-slate-500 mt-0.5">EcoTextiles: "We can certainly help with..."</p>
+                                                <p class="text-[10px] text-slate-400 mt-1">5 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="border-t border-gray-50 text-center">
+                                    <a href="briefs.html" class="block px-4 py-2 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors">View All Notifications</a>
+                                </div>
+                            </div>
+                        </div>
+              <div class="relative ml-2">
+                <button
+                  id="profile-menu-button"
+                  class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xs hover:bg-blue-200 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 outline-none"
+                >
+                  JD
+                </button>
+                <!-- Profile Dropdown -->
+                <div
+                  id="profile-menu"
+                  class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg py-1 border border-gray-100 z-50 transform origin-top-right transition-all"
+                >
+                  <div class="px-4 py-3 border-b border-gray-50">
+                    <p class="text-sm font-bold text-slate-900">John Doe</p>
+                    <p class="text-xs text-slate-500 truncate">john@brand.com</p>
+                  </div>
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-slate-600 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >Profile Settings</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-slate-600 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    >Billing & Plans</a
+                  >
+                  <div class="border-t border-gray-50 mt-1"></div>
+                  <a
+                    href="index.html"
+                    class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
+                    >Sign Out</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="flex justify-between items-end mb-8">
+          <div>
+            <h1 class="text-2xl font-bold text-slate-900">Dashboard</h1>
+            <p class="text-slate-500 mt-1">
+              Manage your product briefs and track manufacturer engagement
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <a
+              href="create-brief-manual.html"
+              class="px-4 py-2 bg-white border border-blue-200 text-blue-600 rounded-lg hover:bg-blue-50 font-medium text-sm transition-colors"
+            >
+              Create Manually
+            </a>
+            <a
+              href="create-brief-ai.html"
+              class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-sm shadow-sm shadow-blue-200 transition-colors"
+            >
+              Create With AI
+            </a>
+          </div>
+        </div>
+
+        <!-- Notification Banner -->
+        <div
+          class="bg-blue-50 border border-blue-100 rounded-xl p-4 flex items-center justify-between mb-8"
+        >
+          <div class="flex items-center gap-3">
+            <div class="bg-blue-600 p-1.5 rounded-lg text-white">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm text-slate-700">
+              Your profile is almost complete. Add more details to improve
+              matching proposals.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="text-sm font-medium text-blue-600 hover:text-blue-800"
+            >Complete Profile &rarr;</a
+          >
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <!-- Row 1 -->
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Total Briefs
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">15</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Active
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">2</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Invited
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">2</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Under Discussion
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">3</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Proposals Received
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">5</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Matched
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">2</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Completed
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">1</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between"
+          >
+            <div>
+              <p
+                class="text-slate-500 text-xs font-medium uppercase tracking-wide"
+              >
+                Archived
+              </p>
+              <p class="text-2xl font-bold text-slate-900 mt-1">0</p>
+            </div>
+            <div class="bg-slate-50 p-2 rounded-lg text-slate-400">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Split -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Recent Briefs List -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-lg font-bold text-slate-900">Recent Briefs</h2>
+              <a
+                href="#"
+                class="text-sm font-medium text-blue-600 hover:text-blue-800"
+                >View All</a
+              >
+            </div>
+
+            <!-- Brief Card 1 -->
+            <div
+              class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="flex justify-between items-start mb-3">
+                <div>
+                  <span class="text-xs font-medium text-blue-500 mb-1 block"
+                    >#BR12345678</span
+                  >
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-slate-900">
+                      Premium Vitamin D3 Supplement
+                    </h3>
+                    <span
+                      class="bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded-full font-semibold border border-slate-200 uppercase tracking-wide"
+                      >Draft</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-medium text-blue-600 flex items-center gap-1"
+                  >View Details
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    ></path></svg
+                ></a>
+              </div>
+              <p class="text-sm text-slate-500 mb-4 line-clamp-2">
+                This brief is being created with AI assistance. The AI will help
+                you fill in the details.
+              </p>
+              <div class="flex gap-3">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600"
+                >
+                  <svg
+                    class="w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                  Dietary Supplements
+                </span>
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600"
+                >
+                  <svg
+                    class="w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  €1000 - €100000 USD
+                </span>
+              </div>
+            </div>
+
+            <!-- Brief Card 2 -->
+            <div
+              class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="flex justify-between items-start mb-3">
+                <div>
+                  <span class="text-xs font-medium text-blue-500 mb-1 block"
+                    >#BR12345678</span
+                  >
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-slate-900">
+                      Premium Vitamin D3 Supplement
+                    </h3>
+                    <span
+                      class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-semibold border border-blue-200 uppercase tracking-wide"
+                      >Active</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-medium text-blue-600 flex items-center gap-1"
+                  >View Details
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    ></path></svg
+                ></a>
+              </div>
+              <p class="text-sm text-slate-500 mb-4 line-clamp-2">
+                This brief is being created with AI assistance. The AI will help
+                you fill in the details.
+              </p>
+              <div class="flex gap-3">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600"
+                >
+                  <svg
+                    class="w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                  Dietary Supplements
+                </span>
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600"
+                >
+                  <svg
+                    class="w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  €1000 - €100000 USD
+                </span>
+              </div>
+            </div>
+
+            <!-- Brief Card 3 -->
+            <div
+              class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="flex justify-between items-start mb-3">
+                <div>
+                  <span class="text-xs font-medium text-blue-500 mb-1 block"
+                    >#BR12345678</span
+                  >
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-base font-bold text-slate-900">
+                      Premium Vitamin D3 Supplement
+                    </h3>
+                    <span
+                      class="bg-indigo-100 text-indigo-700 text-[10px] px-2 py-0.5 rounded-full font-semibold border border-indigo-200 uppercase tracking-wide"
+                      >Invited</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-medium text-blue-600 flex items-center gap-1"
+                  >View Details
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    ></path></svg
+                ></a>
+              </div>
+              <p class="text-sm text-slate-500 mb-4 line-clamp-2">
+                This brief is being created with AI assistance. The AI will help
+                you fill in the details.
+              </p>
+              <div class="flex gap-3">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600"
+                >
+                  <svg
+                    class="w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                  Dietary Supplements
+                </span>
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600"
+                >
+                  <svg
+                    class="w-3.5 h-3.5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  €1000 - €100000 USD
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications Sidebar -->
+          <div class="space-y-4">
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-lg font-bold text-slate-900">Notifications</h2>
+              <a
+                href="#"
+                class="text-sm font-medium text-blue-600 hover:text-blue-800"
+                >View All</a
+              >
+            </div>
+
+            <div
+              class="bg-white p-5 rounded-xl border border-gray-100 shadow-lg shadow-gray-100/50"
+            >
+              <!-- Notification Item 1 -->
+              <div
+                class="mb-5 pb-5 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0"
+              >
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="text-sm font-bold text-slate-900">
+                    New manufacturer match
+                  </h4>
+                  <span
+                    class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded"
+                    >New</span
+                  >
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  3 new manufacturers have been matched to your vitamin
+                  supplement brief
+                </p>
+              </div>
+
+              <!-- Notification Item 2 -->
+              <div
+                class="mb-5 pb-5 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0"
+              >
+                <h4 class="text-sm font-bold text-slate-900 mb-1">
+                  Brief published
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Your 'Premium Vitamin D3 Supplement' brief has been
+                  successfully published
+                </p>
+              </div>
+
+              <!-- Notification Item 3 -->
+              <div
+                class="mb-5 pb-5 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0"
+              >
+                <h4 class="text-sm font-bold text-slate-900 mb-1">
+                  Draft reminder
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  You have 2 drafts that haven't been updated in over a week
+                </p>
+              </div>
+
+              <!-- Notification Item 4 -->
+              <div
+                class="mb-5 pb-5 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0"
+              >
+                <h4 class="text-sm font-bold text-slate-900 mb-1">
+                  Brief published
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Your 'Premium Vitamin D3 Supplement' brief has been
+                  successfully published
+                </p>
+              </div>
+
+              <!-- Notification Item 5 -->
+              <div
+                class="mb-5 pb-5 border-b border-gray-50 last:border-0 last:pb-0 last:mb-0"
+              >
+                <h4 class="text-sm font-bold text-slate-900 mb-1">
+                  Draft reminder
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  You have 2 drafts that haven't been updated in over a week
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t border-gray-100 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+            <div class="col-span-1">
+              <img src="/donau-logo.png" alt="DonauAI" class="h-8 mb-4" />
+              <p class="text-sm text-slate-500 leading-relaxed">
+                AI-powered platform connecting brands with manufacturers
+              </p>
+            </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
+                    <li>
+                      <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
+                    </li>
+                    <li>
+                      <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li>
+                      <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
+                    </li>
+                    <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
+                    <li>
+                      <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
+                    </li>
+                    <li>
+                      <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+                    <li>
+                      <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
+                    <li>
+                      <a href="support.html" class="hover:text-blue-600">Contact Support</a>
+                    </li>
+                    <li>
+                      <a href="status.html" class="hover:text-blue-600">System Status</a>
+                    </li>
+                    <li>
+                      <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
+                    </li>
+                  </ul>
+                </div>
+          </div>
+          <div
+            class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
+          >
+            <p>&copy; 2026 DonauApp</p>
+            <div class="flex items-center gap-6 mt-4 md:mt-0">
+              <button class="hover:text-slate-900 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                English
+              </button>
+              <button class="hover:text-slate-900 flex items-center gap-1">
+                EUR
+              </button>
+              <div class="flex gap-4">
+                <a href="#" class="hover:text-blue-600"
+                  ><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    /></svg
+                ></a>
+                <a href="#" class="hover:text-blue-600"
+                  ><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    /></svg
+                ></a>
+                <a href="#" class="hover:text-blue-600"
+                  ><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

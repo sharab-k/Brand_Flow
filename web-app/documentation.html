@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - API Documentation</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 flex-shrink-0 z-50 sticky top-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-10">
+                        <a href="/" class="flex-shrink-0 flex items-center gap-2">
+                            <img src="/donau-logo.png" alt="DonauAI" class="h-8">
+                        </a>
+                        <nav class="hidden md:flex gap-8">
+                            <a href="dashboard.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Home</a>
+                             <a href="documentation.html" class="text-blue-600 font-medium text-sm">Docs</a>
+                            <a href="help-center.html" class="text-slate-500 hover:text-slate-900 font-medium text-sm">Help Center</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow w-full flex">
+             <!-- Sidebar -->
+             <aside class="w-64 bg-slate-50 border-r border-gray-100 hidden md:block flex-shrink-0 h-[calc(100vh-64px)] overflow-y-auto sticky top-16">
+                 <div class="p-6">
+                     <h3 class="font-bold text-slate-900 mb-4 px-2">Getting Started</h3>
+                     <ul class="space-y-1 mb-8">
+                         <li><a href="#" class="block px-2 py-1.5 bg-blue-50 text-blue-700 rounded-md text-sm font-medium">Introduction</a></li>
+                         <li><a href="#" class="block px-2 py-1.5 text-slate-600 hover:bg-gray-100 rounded-md text-sm">Authentication</a></li>
+                         <li><a href="#" class="block px-2 py-1.5 text-slate-600 hover:bg-gray-100 rounded-md text-sm">Rate Limits</a></li>
+                     </ul>
+
+                     <h3 class="font-bold text-slate-900 mb-4 px-2">Endpoints</h3>
+                     <ul class="space-y-1">
+                         <li><a href="#" class="block px-2 py-1.5 text-slate-600 hover:bg-gray-100 rounded-md text-sm">Briefs</a></li>
+                         <li><a href="#" class="block px-2 py-1.5 text-slate-600 hover:bg-gray-100 rounded-md text-sm">Manufacturers</a></li>
+                         <li><a href="#" class="block px-2 py-1.5 text-slate-600 hover:bg-gray-100 rounded-md text-sm">Orders</a></li>
+                         <li><a href="#" class="block px-2 py-1.5 text-slate-600 hover:bg-gray-100 rounded-md text-sm">Webhooks</a></li>
+                     </ul>
+                 </div>
+             </aside>
+
+             <!-- Content -->
+             <div class="flex-grow max-w-4xl mx-auto px-8 py-12">
+                 <h1 class="text-3xl font-bold text-slate-900 mb-6">API Introduction</h1>
+                 <p class="text-slate-600 mb-8 leading-relaxed">
+                     The DonauAI API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
+                 </p>
+
+                 <div class="bg-slate-900 rounded-xl p-6 mb-8 text-slate-200 font-mono text-sm overflow-x-auto">
+                     <div class="flex items-center gap-4 mb-4 border-b border-gray-700 pb-4">
+                         <span class="text-green-400">GET</span>
+                         <span>https://api.donau.ai/v1/briefs</span>
+                     </div>
+                     <pre><code>{
+  "data": [
+    {
+      "id": "brf_123456789",
+      "status": "draft",
+      "title": "Summer Collection 2026",
+      "created_at": 1678901234
+    }
+  ],
+  "has_more": false
+}</code></pre>
+                 </div>
+
+                 <h2 class="text-2xl font-bold text-slate-900 mb-4 mt-12">Authentication</h2>
+                 <p class="text-slate-600 mb-4">
+                     Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the Dashboard.
+                 </p>
+                 <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm text-slate-700">
+                     Authorization: Bearer sk_test_123456789
+                 </div>
+             </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-12 mt-auto z-10 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 text-sm">
+                <div class="col-span-1">
+                  <img src="/donau-logo.png" alt="DonauAI" class="h-8 mb-4" />
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    AI-powered platform connecting brands with manufacturers
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
+                    <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
+                    <li>
+                      <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
+                    </li>
+                    <li>
+                      <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li>
+                      <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
+                    </li>
+                    <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
+                    <li>
+                      <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
+                    </li>
+                    <li>
+                      <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+                    <li>
+                      <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                  <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
+                    <li>
+                      <a href="support.html" class="hover:text-blue-600">Contact Support</a>
+                    </li>
+                    <li>
+                      <a href="status.html" class="hover:text-blue-600">System Status</a>
+                    </li>
+                    <li>
+                      <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
+              >
+                <p>&copy; 2026 DonauApp</p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <div class="flex gap-4">
+                         <span>English</span> <span>EUR</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
