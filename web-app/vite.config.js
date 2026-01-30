@@ -10,6 +10,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about-us.html'),
         ai_brief_assistant: resolve(__dirname, 'ai-brief-assistant.html'),
         briefs: resolve(__dirname, 'briefs.html'),
+        brief_detail: resolve(__dirname, 'brief-detail.html'),
         contact: resolve(__dirname, 'contact.html'),
         create_brief_ai: resolve(__dirname, 'create-brief-ai.html'),
         create_brief_manual: resolve(__dirname, 'create-brief-manual.html'),
