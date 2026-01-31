@@ -40,76 +40,113 @@
 
                     <!-- Right Actions -->
                     <div class="flex items-center gap-4">
-                        <button class="bg-blue-600 text-white p-1 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg></button>
-                        <a href="help-center.html" class="text-slate-400 hover:text-slate-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></a>
-                        <div class="relative">
-                            <button
-                                id="notification-button"
-                                class="text-slate-400 hover:text-slate-600 relative focus:outline-none"
-                            >
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
-                                <span class="absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-white bg-red-500"></span>
-                            </button>
-                            <!-- Notification Dropdown -->
-                            <div
-                                id="notification-menu"
-                                class="hidden absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg py-1 border border-gray-100 z-50 transform origin-top-right transition-all"
-                            >
-                                <div class="px-4 py-3 border-b border-gray-50 flex justify-between items-center">
-                                    <p class="text-sm font-bold text-slate-900">Notifications</p>
-                                    <span class="text-xs text-blue-600 font-medium cursor-pointer hover:underline">Mark all read</span>
-                                </div>
-                                <div class="max-h-64 overflow-y-auto">
-                                    <a href="briefs.html" class="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50">
-                                        <div class="flex gap-3">
-                                            <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <!-- Mobile menu button -->
+                        <button id="mobile-menu-button" class="md:hidden text-slate-500 hover:text-slate-900 focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+
+                        <div class="hidden md:flex items-center gap-4">
+                            <button class="bg-blue-600 text-white p-1 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg></button>
+                            <a href="help-center.html" class="text-slate-400 hover:text-slate-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></a>
+                            <div class="relative">
+                                <button
+                                    id="notification-button"
+                                    class="text-slate-400 hover:text-slate-600 relative focus:outline-none"
+                                >
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                                    <span class="absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-white bg-red-500"></span>
+                                </button>
+                                <!-- Notification Dropdown -->
+                                <div
+                                    id="notification-menu"
+                                    class="hidden absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg py-1 border border-gray-100 z-50 transform origin-top-right transition-all"
+                                >
+                                    <div class="px-4 py-3 border-b border-gray-50 flex justify-between items-center">
+                                        <p class="text-sm font-bold text-slate-900">Notifications</p>
+                                        <span class="text-xs text-blue-600 font-medium cursor-pointer hover:underline">Mark all read</span>
+                                    </div>
+                                    <div class="max-h-64 overflow-y-auto">
+                                        <a href="briefs.html" class="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50">
+                                            <div class="flex gap-3">
+                                                <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-slate-900">Brief Approved</p>
+                                                    <p class="text-xs text-slate-500 mt-0.5">Your "Summer Collection" brief has been approved.</p>
+                                                    <p class="text-[10px] text-slate-400 mt-1">2 hours ago</p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <p class="text-sm font-medium text-slate-900">Brief Approved</p>
-                                                <p class="text-xs text-slate-500 mt-0.5">Your "Summer Collection" brief has been approved.</p>
-                                                <p class="text-[10px] text-slate-400 mt-1">2 hours ago</p>
+                                        </a>
+                                        <a href="messages.html" class="block px-4 py-3 hover:bg-gray-50 transition-colors bg-blue-50/30">
+                                            <div class="flex gap-3">
+                                                <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-slate-900">New Message</p>
+                                                    <p class="text-xs text-slate-500 mt-0.5">EcoTextiles: "We can certainly help with..."</p>
+                                                    <p class="text-[10px] text-slate-400 mt-1">5 hours ago</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
+                                    <div class="border-t border-gray-50 text-center">
+                                        <a href="briefs.html" class="block px-4 py-2 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors">View All Notifications</a>
+                                    </div>
                                 </div>
-                                <div class="border-t border-gray-50 text-center">
-                                    <a href="briefs.html" class="block px-4 py-2 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors">View All Notifications</a>
+                            </div>
+                            <div class="relative ml-2">
+                                <button
+                                    id="profile-menu-button"
+                                    class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xs hover:bg-blue-200 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 outline-none"
+                                >
+                                    JD
+                                </button>
+                                <!-- Profile Dropdown -->
+                                <div
+                                    id="profile-menu"
+                                    class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg py-1 border border-gray-100 z-50 transform origin-top-right transition-all"
+                                >
+                                    <div class="px-4 py-3 border-b border-gray-50">
+                                        <p class="text-sm font-bold text-slate-900">John Doe</p>
+                                        <p class="text-xs text-slate-500 truncate">john@brand.com</p>
+                                    </div>
+                                    <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-gray-50 hover:text-blue-600 transition-colors">Profile Settings</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:bg-gray-50 hover:text-blue-600 transition-colors">Billing & Plans</a>
+                                    <div class="border-t border-gray-50 mt-1"></div>
+                                    <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors">Sign Out</a>
                                 </div>
                             </div>
                         </div>
-              <div class="relative ml-2">
-                <button
-                  id="profile-menu-button"
-                  class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xs hover:bg-blue-200 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 outline-none"
-                >
-                  JD
-                </button>
-                <!-- Profile Dropdown -->
-                <div
-                  id="profile-menu"
-                  class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg py-1 border border-gray-100 z-50 transform origin-top-right transition-all"
-                >
-                  <div class="px-4 py-3 border-b border-gray-50">
-                    <p class="text-sm font-bold text-slate-900">John Doe</p>
-                    <p class="text-xs text-slate-500 truncate">john@brand.com</p>
-                  </div>
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-slate-600 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                    >Profile Settings</a
-                  >
-                  <div class="border-t border-gray-50 mt-1"></div>
-                  <a
-                    href="index.html"
-                    class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
-                    >Sign Out</a
-                  >
+                    </div>
                 </div>
-              </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
+                    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-slate-900 hover:bg-gray-50">Dashboard</a>
+                        <a href="briefs.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">My Briefs</a>
+                        <a href="messages.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-slate-900 hover:bg-gray-50">Messages</a>
+                    </div>
+                    <div class="pt-4 pb-4 border-t border-gray-100">
+                        <div class="flex items-center px-5">
+                            <div class="flex-shrink-0">
+                                <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm">JD</div>
+                            </div>
+                            <div class="ml-3">
+                                <div class="text-base font-medium leading-none text-slate-900">John Doe</div>
+                                <div class="text-sm font-medium leading-none text-slate-500 mt-1">john@brand.com</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 px-2 space-y-1">
+                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-slate-900 hover:bg-gray-50">Profile Settings</a>
+                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-slate-900 hover:bg-gray-50">Billing & Plans</a>
+                            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-red-600 hover:text-red-700 hover:bg-red-50">Sign Out</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
         </header>
 
         <!-- Main Content -->
@@ -134,11 +171,11 @@
                      <p class="text-sm text-slate-500">Created on Jan 28, 2026 • Reference: #BR12345678</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button class="px-4 py-2 border border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 font-medium text-sm transition-colors flex items-center gap-2">
+                    <a href="create-brief-manual.html" class="px-4 py-2 border border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 font-medium text-sm transition-colors flex items-center gap-2">
                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                          Edit Brief
-                    </button>
-                    <button class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-medium text-sm shadow-sm shadow-blue-200 transition-colors flex items-center gap-2">
+                    </a>
+                    <button id="invite-manufacturers-btn" class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-medium text-sm shadow-sm shadow-blue-200 transition-colors flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                         Invite Manufacturers
                     </button>
@@ -296,6 +333,43 @@
                 </div>
              </div>
         </footer>
+    </div>
+    <!-- Invite Manufacturers Modal -->
+    <div id="invite-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] transition-opacity"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 ring-1 ring-black/5">
+                <!-- Header -->
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-50 sm:mx-0 sm:h-10 sm:w-10">
+                            <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                            <h3 class="text-base font-semibold leading-6 text-slate-900" id="modal-title">Invite Manufacturers</h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-slate-500 mb-4">Send an email invitation to manufacturers you know to quote on this brief.</p>
+                                
+                                <label for="invite-emails" class="block text-xs font-semibold text-slate-700 mb-1">Email Addresses</label>
+                                <textarea id="invite-emails" name="invite-emails" rows="3" class="w-full rounded-xl border-gray-200 border p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none" placeholder="partner@example.com, supplier@factory.com"></textarea>
+                                
+                                <label for="invite-message" class="block text-xs font-semibold text-slate-700 mt-4 mb-1">Custom Message (Optional)</label>
+                                <textarea id="invite-message" name="invite-message" rows="2" class="w-full rounded-xl border-gray-200 border p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none" placeholder="Hey, check out this brief..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer -->
+                <div class="bg-gray-50/50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-50">
+                    <button type="button" id="send-invites-btn" class="inline-flex w-full justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition-all hover:shadow-md hover:scale-[1.02]">Send Invitations</button>
+                    <button type="button" id="cancel-invite-btn" class="mt-3 inline-flex w-full justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-inset ring-gray-200 hover:bg-gray-50 sm:mt-0 sm:w-auto transition-colors">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

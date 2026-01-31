@@ -63,4 +63,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Mobile Menu Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Invite Manufacturers Modal Logic
+    const inviteBtn = document.getElementById('invite-manufacturers-btn');
+    const inviteModal = document.getElementById('invite-modal');
+    const cancelInviteBtn = document.getElementById('cancel-invite-btn');
+    const sendInviteBtn = document.getElementById('send-invites-btn');
+
+    if (inviteBtn && inviteModal) {
+        const closeModal = () => {
+            inviteModal.classList.add('hidden');
+        };
+
+        inviteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            inviteModal.classList.remove('hidden');
+        });
+
+        if (cancelInviteBtn) {
+            cancelInviteBtn.addEventListener('click', closeModal);
+        }
+
+        if (sendInviteBtn) {
+            sendInviteBtn.addEventListener('click', () => {
+                const emailsInput = document.getElementById('invite-emails');
+                const emails = emailsInput ? emailsInput.value : '';
+                
+                if (emails.trim()) {
+                     alert(`Invitations sent to: ${emails}`);
+                     closeModal();
+                     // Reset form
+                     if (emailsInput) emailsInput.value = '';
+                     const messageInput = document.getElementById('invite-message');
+                     if (messageInput) messageInput.value = '';
+                } else {
+                    alert('Please enter at least one email address.');
+                }
+            });
+        }
+        
+        // Close on backdrop click (click outside the modal panel)
+        inviteModal.addEventListener('click', (e) => {
+             const modalPanel = inviteModal.querySelector('.relative.transform.overflow-hidden');
+             if (modalPanel && !modalPanel.contains(e.target)) {
+                 closeModal();
+             }
+        });
+    }
 });
