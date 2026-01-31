@@ -25,6 +25,8 @@ export default defineConfig({
         product_categories: resolve(__dirname, 'product-categories.html'),
         report_issue: resolve(__dirname, 'report-issue.html'),
         signup: resolve(__dirname, 'signup.html'),
+        settings_profile: resolve(__dirname, 'settings-profile.html'),
+        settings_billing: resolve(__dirname, 'settings-billing.html'),
         status: resolve(__dirname, 'status.html'),
         success_stories: resolve(__dirname, 'success-stories.html'),
         support: resolve(__dirname, 'support.html'),
