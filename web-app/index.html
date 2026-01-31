@@ -66,6 +66,63 @@
         <a href="privacy.html" class="text-blue-600 hover:underline">Privacy Policy</a>
         <a href="terms.html" class="text-blue-600 hover:underline">Terms of Service</a>
     </footer>
+
+    <!-- Floating Chat Button -->
+    <button id="ai-chat-toggle" class="fixed bottom-6 right-6 h-14 w-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-lg hover:shadow-blue-500/30 text-white flex items-center justify-center transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 z-[90]">
+        <!-- Round Chat Bubble Icon -->
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+    </button>
+
+    <!-- AI Assistant Popup -->
+    <div id="ai-sidebar" class="hidden fixed bottom-24 right-6 z-[100] w-[380px] h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-100 transition-all duration-300 origin-bottom-right">
+        <!-- Header -->
+        <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between bg-white">
+            <div class="flex items-center gap-3">
+                <div class="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900 leading-tight">Donau AI Assistant</h2>
+                    <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Ask us anything about your brief.</p>
+                </div>
+            </div>
+            <button type="button" id="close-ai-sidebar" class="text-slate-400 hover:text-slate-500 focus:outline-none p-1 hover:bg-gray-50 rounded-full transition-colors">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="flex-1 overflow-y-auto p-6 flex flex-col items-center justify-center text-center bg-white">
+            <div class="bg-blue-100 h-14 w-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 mb-2">Welcome to Donau AI!</h3>
+            <p class="text-xs text-slate-500 max-w-[240px] mx-auto mb-6 leading-relaxed">
+                I can help you polish your product brief, suggest vetted manufacturers, or track your pending proposals
+            </p>
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="bg-gray-50 hover:bg-gray-100 text-slate-600 text-[11px] font-medium py-2 px-3.5 rounded-full border border-gray-100 transition-colors">Draft a Proposal</button>
+                <button class="bg-gray-50 hover:bg-gray-100 text-slate-600 text-[11px] font-medium py-2 px-3.5 rounded-full border border-gray-100 transition-colors">Find Manufacturers</button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 border-t border-gray-100 bg-white">
+            <div class="relative flex items-center gap-2">
+                    <button class="text-slate-400 hover:text-slate-600 p-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                </button>
+                <input type="text" class="block w-full rounded-lg border border-gray-200 py-2.5 px-4 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="Type your response...">
+                <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-500 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

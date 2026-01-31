@@ -82,19 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Invite Manufacturers Modal Logic
-    const inviteBtn = document.getElementById('invite-manufacturers-btn');
+    const inviteTriggers = document.querySelectorAll('.invite-trigger');
     const inviteModal = document.getElementById('invite-modal');
     const cancelInviteBtn = document.getElementById('cancel-invite-btn');
     const sendInviteBtn = document.getElementById('send-invites-btn');
 
-    if (inviteBtn && inviteModal) {
+    console.log('Invite Logic Init:', { triggers: inviteTriggers.length, modal: !!inviteModal });
+
+    if (inviteTriggers.length > 0 && inviteModal) {
         const closeModal = () => {
+            console.log('Closing modal');
             inviteModal.classList.add('hidden');
         };
 
-        inviteBtn.addEventListener('click', (e) => {
+        const openModal = (e) => {
+            console.log('Open modal clicked');
+            e.preventDefault();
             e.stopPropagation();
             inviteModal.classList.remove('hidden');
+        };
+
+        inviteTriggers.forEach(trigger => {
+            trigger.addEventListener('click', openModal);
         });
 
         if (cancelInviteBtn) {
@@ -125,6 +134,79 @@ document.addEventListener('DOMContentLoaded', () => {
              if (modalPanel && !modalPanel.contains(e.target)) {
                  closeModal();
              }
+        });
+    } else {
+        console.warn('Invite modal or triggers not found');
+    }
+
+    // Brief Detail Tabs Logic
+    const tabs = [
+        { id: 'tab-overview', contentId: 'content-overview' },
+        { id: 'tab-manufacturers', contentId: 'content-manufacturers' },
+        { id: 'tab-proposals', contentId: 'content-proposals' }
+    ];
+
+    const tabElements = tabs.map(t => document.getElementById(t.id)).filter(el => el);
+    
+    if (tabElements.length > 0) {
+        tabs.forEach(tab => {
+            const tabBtn = document.getElementById(tab.id);
+            const contentDiv = document.getElementById(tab.contentId);
+
+            if (tabBtn && contentDiv) {
+                tabBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // 1. Hide all content & reset tab styles
+                    tabs.forEach(t => {
+                        const tBtn = document.getElementById(t.id);
+                        const tContent = document.getElementById(t.contentId);
+                        
+                        if (tBtn && tContent) {
+                            tContent.classList.add('hidden');
+                            
+                            // Reset classes
+                            tBtn.classList.remove('border-blue-500', 'text-blue-600');
+                            tBtn.classList.add('border-transparent', 'text-slate-500', 'hover:border-gray-300', 'hover:text-slate-700');
+                        }
+                    });
+
+                    // 2. Show active content & set active tab style
+                    contentDiv.classList.remove('hidden');
+                    tabBtn.classList.remove('border-transparent', 'text-slate-500', 'hover:border-gray-300', 'hover:text-slate-700');
+                    tabBtn.classList.add('border-blue-500', 'text-blue-600');
+                });
+            }
+        });
+    }
+
+    // AI Assistant Sidebar Logic
+    const aiChatToggle = document.getElementById('ai-chat-toggle');
+    const aiSidebar = document.getElementById('ai-sidebar');
+    const closeAiSidebarBtn = document.getElementById('close-ai-sidebar');
+
+    if (aiChatToggle && aiSidebar) {
+        aiChatToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Toggle visibility
+            if (aiSidebar.classList.contains('hidden')) {
+                aiSidebar.classList.remove('hidden');
+            } else {
+                aiSidebar.classList.add('hidden');
+            }
+        });
+
+        if (closeAiSidebarBtn) {
+            closeAiSidebarBtn.addEventListener('click', () => {
+                aiSidebar.classList.add('hidden');
+            });
+        }
+
+        // Close when clicking outside (since it's a popup now)
+        document.addEventListener('click', (e) => {
+            if (!aiSidebar.contains(e.target) && !aiChatToggle.contains(e.target) && !aiSidebar.classList.contains('hidden')) {
+                aiSidebar.classList.add('hidden');
+            }
         });
     }
 });

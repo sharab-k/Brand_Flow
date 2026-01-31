@@ -161,167 +161,413 @@
                 <span class="text-slate-900 font-medium">Premium Vitamin D3 Supplement</span>
             </nav>
 
-            <!-- Title & Actions -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                 <div>
                      <div class="flex items-center gap-3 mb-2">
                         <h1 class="text-2xl font-bold text-slate-900 leading-tight">Premium Vitamin D3 Supplement</h1>
-                        <span class="bg-blue-100 text-blue-700 text-[10px] px-2.5 py-1 rounded-full font-bold border border-blue-200 uppercase tracking-wide">Active</span>
+                        <span class="bg-blue-100 text-blue-700 text-[10px] px-2.5 py-1 rounded-full font-bold border border-blue-200 uppercase tracking-wide">Proposal Received</span>
                      </div>
-                     <p class="text-sm text-slate-500">Created on Jan 28, 2026 • Reference: #BR12345678</p>
+                     <p class="text-sm text-slate-500 flex items-center gap-2">
+                        <span>Dietary Supplements</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                        <span>Created 12/01/2026</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                        <span>Last Updated 18/01/2026</span>
+                     </p>
                 </div>
-                <div class="flex flex-wrap items-center gap-3">
-                    <a href="create-brief-manual.html" class="whitespace-nowrap px-4 py-2 border border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 font-medium text-sm transition-colors flex items-center gap-2">
-                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                         Edit Brief
-                    </a>
-                    <button id="invite-manufacturers-btn" class="whitespace-nowrap px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-medium text-sm shadow-sm shadow-blue-200 transition-colors flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            <div class="flex items-center gap-3">
+                    <button id="invite-manufacturers-btn" class="invite-trigger whitespace-nowrap px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-sm shadow-sm shadow-blue-200 transition-colors flex items-center gap-2">
                         Invite Manufacturers
+                    </button>
+                    <button class="p-2 border border-gray-200 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-gray-50">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
                     </button>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                <!-- Left Column: Details -->
-                <div class="lg:col-span-2 space-y-6">
-                    
-                    <!-- Overview Card -->
-                    <div class="card">
-                        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            Brief Overview
-                        </h2>
-                        <div class="prose prose-sm text-slate-600 max-w-none">
-                            <p>We are looking for a reliable manufacturer to produce a premium line of Vitamin D3 softgels. The product needs to be highly bioavailable, using organic olive oil or MCT oil as a carrier. Packaging should be sustainable (recyclable glass bottles or biodegradable blisters).</p>
-                            <p class="mt-2">The target market is health-conscious consumers in the EU. We require GMP certification and full traceability of ingredients.</p>
-                        </div>
-                        
-                        <div class="mt-6 pt-6 border-t border-gray-100">
-                             <h3 class="text-sm font-semibold text-slate-900 mb-3">AI Analysis</h3>
-                             <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 flex gap-3">
-                                <div class="flex-shrink-0 pt-0.5">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                </div>
-                                <div class="text-sm text-blue-800">
-                                    <p class="font-medium">Optimization Suggestion</p>
-                                    <p class="mt-1 opacity-90">Adding "Non-GMO" and "Gluten-Free" specifications explicitly will match with 15% more high-tier manufacturers in our database.</p>
-                                </div>
-                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Specifications Card -->
-                    <div class="card">
-                        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                            Key Specifications
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Product Category</label>
-                                <p class="text-slate-900 font-medium mt-1">Dietary Supplements > Vitamins</p>
-                            </div>
-                            <div>
-                                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Total Quantity</label>
-                                <p class="text-slate-900 font-medium mt-1">10,000 Units (Initial Run)</p>
-                            </div>
-                            <div>
-                                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Target Price</label>
-                                <p class="text-slate-900 font-medium mt-1">€2.50 - €4.00 per unit</p>
-                            </div>
-                            <div>
-                                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Certifications Required</label>
-                                <div class="flex flex-wrap gap-2 mt-1">
-                                    <span class="bg-gray-100 text-slate-600 px-2 py-0.5 rounded text-xs font-medium border border-gray-200">GMP</span>
-                                    <span class="bg-gray-100 text-slate-600 px-2 py-0.5 rounded text-xs font-medium border border-gray-200">ISO 9001</span>
-                                    <span class="bg-gray-100 text-slate-600 px-2 py-0.5 rounded text-xs font-medium border border-gray-200">Organic</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+            <!-- Banner -->
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div class="bg-blue-600 rounded p-1 flex-shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
+                <div class="flex-grow">
+                    <p class="text-sm text-slate-700">Your brief is ready to share. Inviting a small set of relevant manufacturers helps you get higher-quality proposals.</p>
+                </div>
+                <a href="#" class="invite-trigger text-sm font-semibold text-blue-600 hover:text-blue-700 whitespace-nowrap">Invite Manufacturers</a>
+            </div>
 
-                <!-- Right Column: Activity & Status -->
-                <div class="lg:col-span-1 space-y-6">
-                    
-                    <!-- Proposals Card -->
-                     <div class="card">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-lg font-bold text-slate-900">Proposals</h2>
-                             <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">3 New</span>
-                        </div>
-                        <div class="space-y-3">
-                            <!-- Proposal Item 1 -->
-                            <div class="p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer group">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex gap-3">
-                                         <div class="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">NL</div>
-                                         <div>
-                                             <p class="text-sm font-semibold text-slate-900">NutraLabs Inc.</p>
-                                             <p class="text-xs text-slate-500">€3.20/unit • MOQ 5k</p>
-                                         </div>
-                                    </div>
-                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                                </div>
-                            </div>
-                            <!-- Proposal Item 2 -->
-                            <div class="p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer group">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex gap-3">
-                                         <div class="h-8 w-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xs">VM</div>
-                                         <div>
-                                             <p class="text-sm font-semibold text-slate-900">VitaMfg Co.</p>
-                                             <p class="text-xs text-slate-500">€2.95/unit • MOQ 10k</p>
-                                         </div>
-                                    </div>
-                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                                </div>
-                            </div>
-                             <!-- Proposal Item 3 -->
-                            <div class="p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer group">
-                                <div class="flex justify-between items-start">
-                                    <div class="flex gap-3">
-                                         <div class="h-8 w-8 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold text-xs">GP</div>
-                                         <div>
-                                             <p class="text-sm font-semibold text-slate-900">GreenPharma</p>
-                                             <p class="text-xs text-slate-500">€3.50/unit • MOQ 2k</p>
-                                         </div>
-                                    </div>
-                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="w-full mt-4 text-sm text-blue-600 font-medium hover:underline">View All Proposals</button>
-                     </div>
-
-                     <!-- Files Card -->
-                     <div class="card">
-                         <h2 class="text-lg font-bold text-slate-900 mb-4">Attachments</h2>
-                         <div class="space-y-2">
-                             <a href="#" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg group transition-colors">
-                                 <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                                 <div class="flex-grow min-w-0">
-                                     <p class="text-sm font-medium text-slate-700 truncate group-hover:text-blue-600">Product_Spec_Sheet_v2.pdf</p>
-                                     <p class="text-xs text-slate-400">2.4 MB</p>
-                                 </div>
-                                 <svg class="w-4 h-4 text-slate-300 group-hover:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                             </a>
-                              <a href="#" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg group transition-colors">
-                                 <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                 <div class="flex-grow min-w-0">
-                                     <p class="text-sm font-medium text-slate-700 truncate group-hover:text-blue-600">Label_Concept_Art.jpg</p>
-                                     <p class="text-xs text-slate-400">1.8 MB</p>
-                                 </div>
-                                 <svg class="w-4 h-4 text-slate-300 group-hover:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                             </a>
-                         </div>
-                     </div>
-
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 text-xs font-medium">Manufacturers Viewed</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">12</p>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded-full text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between">
+                    <div>
+                         <p class="text-slate-500 text-xs font-medium">Offers Received</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">3</p>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded-full text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 text-xs font-medium">Average Response Time</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">2.5 days</p>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded-full text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between">
+                     <div>
+                        <p class="text-slate-500 text-xs font-medium">Total Invited</p>
+                        <p class="text-2xl font-bold text-slate-900 mt-1">3</p>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded-full text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
                 </div>
             </div>
+
+            <!-- Tabs -->
+            <div class="border-b border-gray-200 mb-8">
+                <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                    <button id="tab-overview" class="tab-btn border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600 focus:outline-none" aria-current="page">
+                         <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                         Overview
+                    </button>
+                    <button id="tab-manufacturers" class="tab-btn border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-gray-300 hover:text-slate-700 focus:outline-none">
+                         <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                         Manufacturers <span class="bg-gray-100 text-slate-600 rounded-full py-0.5 px-2.5 text-xs ml-2">2</span>
+                    </button>
+                    <button id="tab-proposals" class="tab-btn border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-gray-300 hover:text-slate-700 focus:outline-none">
+                         <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                         Proposals <span class="bg-gray-100 text-slate-600 rounded-full py-0.5 px-2.5 text-xs ml-2">2</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="space-y-6">
+                
+                <!-- Overview Content -->
+                <div id="content-overview" class="tab-content space-y-6">
+                    <!-- Brief Description -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Brief Description</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed text-justify">
+                            We are looking for a manufacturer to produce a high-quality vitamin D3 supplement. The product should use cholecalciferol (D3) form with enhanced bioavailability. We need the product in both softgel and liquid drop formats.
+                        </p>
+                    </div>
+
+                    <!-- Product Specifications -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Product Specifications</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50/50 p-4 rounded-lg">
+                            <div class="flex justify-between md:block">
+                                <span class="text-xs text-slate-500 font-semibold uppercase tracking-wide block mb-1">Category</span>
+                                <span class="text-sm font-bold text-slate-900">Dietary Supplements</span>
+                            </div>
+                            <div class="flex justify-between md:block">
+                                <span class="text-xs text-slate-500 font-semibold uppercase tracking-wide block mb-1">Form</span>
+                                <span class="text-sm font-bold text-slate-900">Softgels & Liquid drops</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brief Details -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Brief Details</h3>
+                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-gray-50 p-2.5 rounded-lg text-slate-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-0.5">Budget</p>
+                                    <p class="text-sm font-bold text-slate-900">€10,000 - €25,000</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-gray-50 p-2.5 rounded-lg text-slate-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                 <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-0.5">Timeline</p>
+                                    <p class="text-sm font-bold text-slate-900">8-12 weeks</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-gray-50 p-2.5 rounded-lg text-slate-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                </div>
+                                 <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-0.5">Target Launch</p>
+                                    <p class="text-sm font-bold text-slate-900">Q2 2026</p>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Requirements</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full border border-green-500 flex items-center justify-center text-green-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-600">FDA registered facility</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full border border-green-500 flex items-center justify-center text-green-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-600">GMP certified</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                 <div class="flex-shrink-0 w-5 h-5 rounded-full border border-green-500 flex items-center justify-center text-green-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-600">Third-party testing available</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                 <div class="flex-shrink-0 w-5 h-5 rounded-full border border-green-500 flex items-center justify-center text-green-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-600">Experience with vitamin supplements</span>
+                            </div>
+                             <div class="flex items-center gap-3">
+                                 <div class="flex-shrink-0 w-5 h-5 rounded-full border border-green-500 flex items-center justify-center text-green-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span class="text-sm text-slate-600">Minimum 2 years in business</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attachments -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4">Attachments</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200/50">
+                                <div class="p-2 bg-white rounded border border-gray-200 mr-3">
+                                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="text-sm font-bold text-slate-900">Specs.pdf</p>
+                                    <p class="text-xs text-slate-500">PDF Document • 2.4 MB</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200/50">
+                                <div class="p-2 bg-white rounded border border-gray-200 mr-3">
+                                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="text-sm font-bold text-slate-900">Design-mockup.png</p>
+                                    <p class="text-xs text-slate-500">PDF Document • 2.4 MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manufacturers Content (Hidden by default) -->
+                <div id="content-manufacturers" class="tab-content hidden space-y-6">
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                        <div class="mb-6">
+                            <h3 class="text-base font-bold text-slate-900">Invited Manufacturers</h3>
+                            <p class="text-sm text-slate-500 mt-1">AI-matched manufacturers based on your requirements</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Manufacturer Card 1: EcoPack Solutions -->
+                            <div class="border border-gray-100 rounded-lg p-5 hover:bg-gray-50 transition-colors">
+                                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                                        <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">ES</div>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-slate-900">EcoPack Solutions</h4>
+                                            <div class="flex items-center gap-3 mt-1 flex-wrap">
+                                                <div class="flex items-center text-xs text-slate-500">
+                                                    <svg class="w-3.5 h-3.5 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                    United States
+                                                </div>
+                                                <div class="flex items-center text-xs text-slate-500">
+                                                    <svg class="w-3.5 h-3.5 mr-1 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                                    4.8 (127 reviews)
+                                                </div>
+                                                <div class="flex items-center text-xs text-slate-500">
+                                                    <svg class="w-3.5 h-3.5 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                    Submitted Jan 16
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                                        <button class="flex-1 sm:flex-none px-4 py-2 border border-blue-200 text-blue-600 rounded-lg text-xs font-semibold hover:bg-blue-50 transition-colors">Message</button>
+                                        <button class="flex-1 sm:flex-none px-4 py-2 border border-blue-200 text-blue-600 rounded-lg text-xs font-semibold hover:bg-blue-50 transition-colors">View Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Manufacturer Card 2: Lincoln Pharma LLC -->
+                            <div class="border border-gray-100 rounded-lg overflow-hidden">
+                                <div class="p-5 hover:bg-gray-50 transition-colors">
+                                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                                            <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">LP</div>
+                                            <div>
+                                                <h4 class="text-sm font-bold text-slate-900">Lincoln Pharma LLC</h4>
+                                                <div class="flex items-center gap-3 mt-1 flex-wrap">
+                                                    <div class="flex items-center text-xs text-slate-500">
+                                                        <svg class="w-3.5 h-3.5 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                        United States
+                                                    </div>
+                                                    <div class="flex items-center text-xs text-slate-500">
+                                                        <svg class="w-3.5 h-3.5 mr-1 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                                        4.9 (127 reviews)
+                                                    </div>
+                                                    <div class="flex items-center text-xs text-slate-500">
+                                                        <svg class="w-3.5 h-3.5 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                                        Submitted Jan 16
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                                            <button class="flex-1 sm:flex-none px-4 py-2 border border-blue-200 text-blue-600 rounded-lg text-xs font-semibold hover:bg-blue-50 transition-colors">Message</button>
+                                            <button class="flex-1 sm:flex-none px-4 py-2 border border-blue-200 text-blue-600 rounded-lg text-xs font-semibold hover:bg-blue-50 transition-colors">View Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Info Banner -->
+                                <div class="bg-blue-50/50 p-3 mx-2 mb-2 rounded-lg border border-blue-100 flex items-start gap-3">
+                                    <div class="bg-blue-500 rounded p-1 flex-shrink-0 mt-0.5">
+                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <p class="text-xs text-slate-700">You're now continuing with this manufacturer. You can refine timelines, specifications, and next steps in chat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proposals Content (Hidden by default) -->
+                <div id="content-proposals" class="tab-content hidden">
+                    
+                    <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm mb-6">
+                        <h3 class="text-base font-bold text-slate-900">Received Proposals</h3>
+                        <p class="text-sm text-slate-500 mt-1">Compare and evaluate proposals from manufacturers</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        
+                        <!-- Proposal Card 1 -->
+                        <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-900">Lincoln Pharma LLC</h3>
+                                    <p class="text-xs text-slate-500 mt-1">Proposal ID: PROP-001</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-gray-50/50 rounded-lg border border-gray-100 mb-6">
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Total Cost</p>
+                                    <p class="text-lg font-bold text-slate-900">€4,000</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Timeline</p>
+                                    <p class="text-lg font-bold text-slate-900">2 weeks</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Quantity</p>
+                                    <p class="text-lg font-bold text-slate-900">100 units</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Price Per Unit</p>
+                                    <p class="text-lg font-bold text-slate-900">€40</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h4 class="text-sm font-bold text-slate-900 mb-2">Notes</h4>
+                                <p class="text-sm text-slate-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    We can meet all your requirements with GOTS certified organic cotton. Price includes packaging.
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-100">
+                                <p class="text-xs text-slate-400">Valid until: 02/15/2024</p>
+                                <div class="flex gap-3 w-full sm:w-auto">
+                                    <button class="flex-1 sm:flex-none px-6 py-2 border border-blue-200 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 transition-colors">Pause</button>
+                                    <button class="flex-1 sm:flex-none px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">Continue Discussion</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proposal Card 2 -->
+                        <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-900">GreenThread Manufacturing</h3>
+                                    <p class="text-xs text-slate-500 mt-1">Proposal ID: PROP-002</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-gray-50/50 rounded-lg border border-gray-100 mb-6">
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Total Cost</p>
+                                    <p class="text-lg font-bold text-slate-900">€4,200</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Timeline</p>
+                                    <p class="text-lg font-bold text-slate-900">2 weeks</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Quantity</p>
+                                    <p class="text-lg font-bold text-slate-900">100 units</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 mb-1">Price Per Unit</p>
+                                    <p class="text-lg font-bold text-slate-900">€42</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h4 class="text-sm font-bold text-slate-900 mb-2">Notes</h4>
+                                <p class="text-sm text-slate-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    We specialize in sustainable materials. Our quote includes initial sampling and eco-friendly packaging options.
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-100">
+                                <p class="text-xs text-slate-400">Valid until: 02/18/2024</p>
+                                <div class="flex gap-3 w-full sm:w-auto">
+                                    <button class="flex-1 sm:flex-none px-6 py-2 border border-blue-200 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 transition-colors">Pause</button>
+                                    <button class="flex-1 sm:flex-none px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">Continue Discussion</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+
 
         </main>
         
@@ -334,40 +580,289 @@
              </div>
         </footer>
     </div>
-    <!-- Invite Manufacturers Modal -->
-    <div id="invite-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Backdrop -->
-        <div class="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] transition-opacity"></div>
-
-        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-100 ring-1 ring-black/5">
-                <!-- Header -->
-                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-50 sm:mx-0 sm:h-10 sm:w-10">
-                            <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                            </svg>
+    <!-- Invite Manufacturers Sidebar -->
+    <div id="invite-modal" class="hidden relative z-[100]" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <!-- Background backdrop -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      
+        <div class="fixed inset-0 overflow-hidden">
+          <div class="absolute inset-0 overflow-hidden">
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+              
+              <div class="pointer-events-auto w-screen max-w-2xl">
+                <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                  
+                  <!-- Header -->
+                  <div class="px-4 py-6 sm:px-6 border-b border-gray-200">
+                    <div class="flex items-start justify-between">
+                      <div>
+                        <h2 class="text-lg font-bold text-slate-900" id="slide-over-title">Manufacturer Matches</h2>
+                        <p class="text-sm text-slate-500 mt-1">Browse manufacturers matched to your brief</p>
+                      </div>
+                      <div class="ml-3 flex h-7 items-center gap-3">
+                        <button type="button" class="rounded-md bg-white text-blue-600 font-medium text-sm hover:text-blue-500 border border-blue-200 px-3 py-1.5 transition-colors">
+                            Send to all
+                        </button>
+                        <button type="button" id="cancel-invite-btn" class="relative rounded-md bg-white text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                          <span class="absolute -inset-2.5"></span>
+                          <span class="sr-only">Close panel</span>
+                          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <!-- Search & Filters -->
+                    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-grow">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </div>
+                            <input type="text" class="block w-full rounded-md border border-gray-200 py-2 pl-10 pr-3 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Search by name or location...">
                         </div>
-                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
-                            <h3 class="text-base font-semibold leading-6 text-slate-900" id="modal-title">Invite Manufacturers</h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-slate-500 mb-4">Send an email invitation to manufacturers you know to quote on this brief.</p>
-                                
-                                <label for="invite-emails" class="block text-xs font-semibold text-slate-700 mb-1">Email Addresses</label>
-                                <textarea id="invite-emails" name="invite-emails" rows="3" class="w-full rounded-xl border-gray-200 border p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none" placeholder="partner@example.com, supplier@factory.com"></textarea>
-                                
-                                <label for="invite-message" class="block text-xs font-semibold text-slate-700 mt-4 mb-1">Custom Message (Optional)</label>
-                                <textarea id="invite-message" name="invite-message" rows="2" class="w-full rounded-xl border-gray-200 border p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none" placeholder="Hey, check out this brief..."></textarea>
+                        <select class="block w-full sm:w-auto rounded-md border border-gray-200 py-2 pl-3 pr-8 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm text-slate-600">
+                            <option>All Specialties</option>
+                        </select>
+                         <select class="block w-full sm:w-auto rounded-md border border-gray-200 py-2 pl-3 pr-8 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm text-slate-600">
+                            <option>Best Match</option>
+                        </select>
+                    </div>
+
+                    <!-- Info Banner -->
+                    <div class="mt-6 bg-blue-50 border border-blue-100 rounded-lg p-3 flex gap-3">
+                        <div class="flex-shrink-0 bg-blue-500 p-1 rounded">
+                             <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <p class="text-sm text-slate-700">Inviting 2-3 manufacturers usually leads to stronger comparisons.</p>
+                    </div>
+                  </div>
+      
+                  <!-- Main Content (List) -->
+                  <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6 bg-slate-50/50 space-y-4">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="font-bold text-slate-900">Lincoln Pharma LLC</h3>
+                                <div class="flex items-center gap-4 mt-1">
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        Guangzhou, China
+                                    </div>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        4.9 (127 reviews)
+                                    </div>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                                        95% response rate
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="text-slate-400 hover:text-blue-600 transition-colors p-1 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Organic Textiles</span>
+                             <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Sustainable Fashion</span>
+                              <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Custom Apparel</span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 border-t border-b border-gray-100 py-4 mb-4">
+                            <div>
+                                <p class="text-xs text-slate-500 mb-1">MOQ</p>
+                                <p class="text-sm font-bold text-slate-900">500 units</p>
+                            </div>
+                             <div>
+                                <p class="text-xs text-slate-500 mb-1">Lead Time</p>
+                                <p class="text-sm font-bold text-slate-900">45-60 days</p>
+                            </div>
+                             <div>
+                                <p class="text-xs text-slate-500 mb-1">Certifications</p>
+                                <p class="text-sm font-bold text-slate-900">3 verified</p>
                             </div>
                         </div>
+
+                        <div class="flex gap-3">
+                            <button class="flex-1 rounded-lg border border-blue-200 py-2 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Message</button>
+                            <button class="flex-1 rounded-lg bg-blue-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Send Invite</button>
+                        </div>
                     </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow relative">
+                        <!-- Popover Example for presentation -->
+                        <div class="absolute -top-12 right-1/4 transform translate-x-8 bg-slate-900 text-white text-[10px] py-1.5 px-3 rounded shadow-lg z-10 w-48 text-center pointer-events-none hidden md:block">
+                            Inviting a manufacturer starts a conversation — this is not a commitment.
+                            <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-slate-900 rotate-45"></div>
+                        </div>
+
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="font-bold text-slate-900">GreenThread Manufacturing</h3>
+                                <div class="flex items-center gap-4 mt-1">
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        Guangzhou, China
+                                    </div>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        4.7 (127 reviews)
+                                    </div>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                                        95% response rate
+                                    </div>
+                                </div>
+                            </div>
+                             <button class="text-slate-400 hover:text-blue-600 transition-colors p-1 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Organic Textiles</span>
+                             <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Sustainable Fashion</span>
+                              <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Custom Apparel</span>
+                        </div>
+
+                         <div class="grid grid-cols-3 gap-4 border-t border-b border-gray-100 py-4 mb-4">
+                            <div>
+                                <p class="text-xs text-slate-500 mb-1">MOQ</p>
+                                <p class="text-sm font-bold text-slate-900">500 units</p>
+                            </div>
+                             <div>
+                                <p class="text-xs text-slate-500 mb-1">Lead Time</p>
+                                <p class="text-sm font-bold text-slate-900">45-60 days</p>
+                            </div>
+                             <div>
+                                <p class="text-xs text-slate-500 mb-1">Certifications</p>
+                                <p class="text-sm font-bold text-slate-900">3 verified</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <button class="flex-1 rounded-lg border border-blue-200 py-2 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Message</button>
+                            <button class="flex-1 rounded-lg bg-blue-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Send Invite</button>
+                        </div>
+                    </div>
+
+                     <!-- Card 3 -->
+                    <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="font-bold text-slate-900">EcoFabrics Ltd</h3>
+                                <div class="flex items-center gap-4 mt-1">
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        Guangzhou, China
+                                    </div>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        4.8 (95 reviews)
+                                    </div>
+                                    <div class="flex items-center gap-1 text-xs text-slate-500">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                                        98% response rate
+                                    </div>
+                                </div>
+                            </div>
+                             <button class="text-slate-400 hover:text-blue-600 transition-colors p-1 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Organic Textiles</span>
+                             <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Sustainable Fashion</span>
+                              <span class="inline-flex items-center rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-slate-600">Custom Apparel</span>
+                        </div>
+
+                         <div class="grid grid-cols-3 gap-4 border-t border-b border-gray-100 py-4 mb-4">
+                            <div>
+                                <p class="text-xs text-slate-500 mb-1">MOQ</p>
+                                <p class="text-sm font-bold text-slate-900">500 units</p>
+                            </div>
+                             <div>
+                                <p class="text-xs text-slate-500 mb-1">Lead Time</p>
+                                <p class="text-sm font-bold text-slate-900">45-60 days</p>
+                            </div>
+                             <div>
+                                <p class="text-xs text-slate-500 mb-1">Certifications</p>
+                                <p class="text-sm font-bold text-slate-900">3 verified</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <button class="flex-1 rounded-lg border border-blue-200 py-2 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Message</button>
+                            <button class="flex-1 rounded-lg bg-blue-600 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Send Invite</button>
+                        </div>
+                    </div>
+
+                  </div>
                 </div>
-                <!-- Footer -->
-                <div class="bg-gray-50/50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-50">
-                    <button type="button" id="send-invites-btn" class="inline-flex w-full justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition-all hover:shadow-md hover:scale-[1.02]">Send Invitations</button>
-                    <button type="button" id="cancel-invite-btn" class="mt-3 inline-flex w-full justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-inset ring-gray-200 hover:bg-gray-50 sm:mt-0 sm:w-auto transition-colors">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Floating Chat Button -->
+    <button id="ai-chat-toggle" class="fixed bottom-6 right-6 h-14 w-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-lg hover:shadow-blue-500/30 text-white flex items-center justify-center transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 z-[90]">
+        <!-- Round Chat Bubble Icon -->
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+    </button>
+
+    <!-- AI Assistant Popup -->
+
+        <!-- Header -->
+        <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between bg-white">
+            <div class="flex items-center gap-3">
+                <div class="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900 leading-tight">Donau AI Assistant</h2>
+                    <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Ask us anything about your brief.</p>
+                </div>
+            </div>
+            <button type="button" id="close-ai-sidebar" class="text-slate-400 hover:text-slate-500 focus:outline-none p-1 hover:bg-gray-50 rounded-full transition-colors">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="flex-1 overflow-y-auto p-6 flex flex-col items-center justify-center text-center bg-white">
+            <div class="bg-blue-100 h-14 w-14 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 mb-2">Welcome to Donau AI!</h3>
+            <p class="text-xs text-slate-500 max-w-[240px] mx-auto mb-6 leading-relaxed">
+                I can help you polish your product brief, suggest vetted manufacturers, or track your pending proposals
+            </p>
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="bg-gray-50 hover:bg-gray-100 text-slate-600 text-[11px] font-medium py-2 px-3.5 rounded-full border border-gray-100 transition-colors">Draft a Proposal</button>
+                <button class="bg-gray-50 hover:bg-gray-100 text-slate-600 text-[11px] font-medium py-2 px-3.5 rounded-full border border-gray-100 transition-colors">Find Manufacturers</button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 border-t border-gray-100 bg-white">
+            <div class="relative flex items-center gap-2">
+                    <button class="text-slate-400 hover:text-slate-600 p-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                </button>
+                <input type="text" class="block w-full rounded-lg border border-gray-200 py-2.5 px-4 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="Type your response...">
+                <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-500 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </button>
             </div>
         </div>
     </div>
