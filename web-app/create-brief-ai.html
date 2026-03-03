@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DonauAI - AI Brief Assistant</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+             Alpine.data('aiApp', () => ({
+                chatHistory: [
+                    { id: 1, sender: 'ai', text: 'Hi! I\'ll help you connect with manufacturers. What product do you want to create?' },
+                    { id: 2, sender: 'user', text: 'face cream' },
+                    { id: 3, sender: 'ai', text: 'For a face cream, it looks like Category → Skincare and Form Factor → Cream make sense. I\'m going to set them to those.\n--- What\'s your maximum budget? (Most manufacturers need at least €5,000)' },
+                    { id: 4, sender: 'user', text: '5000' },
+                    { id: 5, sender: 'ai', text: 'Great, I\'m setting your budget to €5,000. --- What key ingredients do you want?' },
+                    { id: 6, sender: 'user', text: 'whitening' },
+                    { id: 7, sender: 'ai', text: 'Perfect, I\'m adding whitening ingredients to your description.\n--- When do you need it delivered? (YYYY-MM-DD)' }
+                ],
+                currentMessage: '',
+                briefData: {
+                    title: 'Ever Green Apparel Co', // Placeholder from image
+                    category: 'Haircare', // Placeholder from image says Haircare, context says Face Cream. I'll stick to image data for fidelity or logic? The chat says Face Cream. Image says Haircare. I'll use image data to match "looks exactly like".
+                    formFactor: 'Cream',
+                    description: 'Face cream with whitening ingredients.',
+                    minBudget: 1000,
+                    maxBudget: 5000,
+                    deliveryDate: '2028-03-01',
+                    flexibility: 30,
+                    requirements: 'To be determined with AI assistance'
+                },
+                sendMessage() {
+                    if (!this.currentMessage.trim()) return;
+                    // Add user message via simulated push for demo
+                    this.chatHistory.push({ id: Date.now(), sender: 'user', text: this.currentMessage });
+                    this.currentMessage = '';
+                    // Scroll to bottom
+                    this.$nextTick(() => {
+                        const container = document.getElementById('chat-container');
+                        if (container) container.scrollTop = container.scrollHeight;
+                    });
+                }
+             }))
+        })
+    </script>
+  </head>
+  <body class="bg-gray-50 text-slate-800 antialiased font-sans h-screen flex flex-col" x-data="aiApp">
+    
+    <!-- Top Bar -->
+    <!-- Top Bar -->
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Left Side: Logo & Nav -->
+          <div class="flex items-center">
+            <!-- Logo -->
+            <a href="/" class="flex-shrink-0 flex items-center pr-6 border-r border-gray-100">
+              <span class="text-2xl font-bold tracking-tighter text-[#0f172a]">donau</span><span
+                class="text-2xl font-normal tracking-tighter text-[#0f172a]">.ai</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 pl-6">
+              <a href="#"
+                class="text-blue-500 font-medium text-xs flex items-center gap-2 border-b-2 border-blue-500 pb-[21px] mt-[21px]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                  </path>
+                </svg>
+                Dashboard
+              </a>
+              <a href="briefs.html"
+                class="text-slate-500 hover:text-slate-900 font-medium text-xs flex items-center gap-2 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                  </path>
+                </svg>
+                My Briefs
+              </a>
+              <a href="messages.html"
+                class="text-slate-500 hover:text-slate-900 font-medium text-xs flex items-center gap-2 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                  </path>
+                </svg>
+                Messages
+              </a>
+            </nav>
+          </div>
+
+          <!-- Right Actions -->
+          <div class="flex items-center gap-3">
+            <button
+              class="text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-50 transition-colors relative">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                </path>
+              </svg>
+            </button>
+
+            <div class="w-px h-5 bg-gray-200 mx-1"></div>
+
+            <div class="h-8 w-8 rounded-full flex items-center justify-center text-white text-xs font-medium"
+              style="background-color: #3B82F6;">E</div>
+
+            <button
+              class="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-500 hover:bg-slate-100 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+      
+
+    <!-- Main Workspace -->
+    <main class="flex-grow flex flex-col p-6 max-w-[1600px] mx-auto w-full h-[calc(100vh-64px)]">
+        
+        <!-- Action Header -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 flex-shrink-0">
+             <div>
+                <h1 class="text-xl font-bold text-slate-900">AI Brief Assistant</h1>
+                <p class="text-sm text-slate-500 mt-1">Create your product brief with AI assistance</p>
+             </div>
+             <div class="flex flex-wrap gap-3">
+                 <a href="briefs.html" class="whitespace-nowrap px-5 py-2 bg-white border border-blue-200 text-blue-600 rounded-lg hover:bg-blue-50 font-medium text-sm transition-colors">Cancel</a>
+                 <button class="whitespace-nowrap px-5 py-2 bg-white border border-blue-200 text-blue-600 rounded-lg hover:bg-blue-50 font-medium text-sm transition-colors">Save Draft</button>
+                 <button class="whitespace-nowrap px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-sm shadow-sm shadow-blue-200 transition-colors">Share Brief</button>
+             </div>
+        </div>
+
+        <!-- Split Content -->
+        <div class="flex-grow flex flex-col md:flex-row gap-6 overflow-hidden">
+            
+            <!-- Left: Chat Interface -->
+            <div class="w-full md:w-1/2 bg-white rounded-2xl border border-gray-100 flex flex-col shadow-sm">
+                <!-- Chat Header -->
+                <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-slate-900">AI Assistant</span>
+                        <span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Connected</span>
+                    </div>
+                    <button class="text-blue-600 text-xs font-medium border border-blue-200 rounded px-3 py-1 hover:bg-blue-50">Clear Chat</button>
+                </div>
+
+                <!-- Chat Messages -->
+                <div id="chat-container" class="flex-grow overflow-y-auto p-6 space-y-6">
+                     <p class="text-xs text-slate-400 mb-4">Ask questions to help create your brief</p>
+
+                     <template x-for="msg in chatHistory" :key="msg.id">
+                        <div class="flex w-full" :class="msg.sender === 'user' ? 'justify-end' : 'justify-start'">
+                            <div class="max-w-[80%] rounded-xl p-4 text-sm leading-relaxed"
+                                 :class="msg.sender === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-50 text-slate-700'">
+                                <p x-text="msg.text"></p>
+                            </div>
+                        </div>
+                     </template>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="p-4 border-t border-gray-100">
+                    <div class="relative flex items-center bg-gray-50 rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-400 transition-all">
+                        <button class="p-3 text-slate-400 hover:text-slate-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                        </button>
+                        <input type="text" x-model="currentMessage" @keydown.enter.prevent="sendMessage" placeholder="Type your response..." class="flex-grow bg-transparent border-none focus:ring-0 text-sm py-3 px-2 placeholder-slate-400">
+                        <button @click="sendMessage" class="p-2 mr-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <svg class="w-4 h-4 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Live Preview -->
+            <div class="hidden md:flex md:w-1/2 bg-white rounded-2xl border border-gray-100 flex-col shadow-sm overflow-hidden">
+                <div class="p-6 border-b border-gray-100">
+                    <h2 class="font-bold text-slate-900">Brief Preview</h2>
+                    <p class="text-xs text-slate-500 mt-1">Live preview of your product brief</p>
+                </div>
+                
+                <div class="flex-grow overflow-y-auto p-6">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-900 mb-1.5">Title</label>
+                            <input type="text" x-model="briefData.title" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none">
+                        </div>
+                         
+                        <div class="grid grid-cols-1 gap-2">
+                             <label class="block text-xs font-bold text-slate-900">Category</label>
+                             <div class="relative">
+                                <select x-model="briefData.category" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none appearance-none bg-white">
+                                    <option>Haircare</option>
+                                    <option>Skincare</option>
+                                    <option>Apparel</option>
+                                </select>
+                                <div class="absolute right-3 top-3 pointer-events-none text-slate-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                             </div>
+                        </div>
+
+                         <div class="grid grid-cols-1 gap-2">
+                             <label class="block text-xs font-bold text-slate-900">Form Factor</label>
+                             <div class="relative">
+                                <select x-model="briefData.formFactor" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none appearance-none bg-white">
+                                    <option>Cream</option>
+                                    <option>Serum</option>
+                                    <option>Lotion</option>
+                                </select>
+                                <div class="absolute right-3 top-3 pointer-events-none text-slate-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-900 mb-1.5">Description</label>
+                            <textarea x-model="briefData.description" rows="3" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none resize-none"></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">Min Budget</label>
+                                <input type="number" x-model="briefData.minBudget" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">Max Budget</label>
+                                <input type="number" x-model="briefData.maxBudget" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">Desired Delivery Date</label>
+                                <div class="relative">
+                                    <input type="text" x-model="briefData.deliveryDate" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none">
+                                     <div class="absolute right-3 top-2.5 pointer-events-none text-slate-400">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">Flexibility (days)</label>
+                                <input type="number" x-model="briefData.flexibility" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none">
+                            </div>
+                        </div>
+
+                         <div>
+                            <label class="block text-xs font-bold text-slate-900 mb-1.5">Requirements</label>
+                            <textarea x-model="briefData.requirements" rows="3" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:border-blue-500 outline-none resize-none"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
