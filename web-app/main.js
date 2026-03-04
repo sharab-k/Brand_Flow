@@ -2,24 +2,24 @@ import './style.css'
 import Lenis from 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/+esm'
 
 const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: 'vertical',
-  gestureDirection: 'vertical',
-  smooth: true,
-  mouseMultiplier: 1,
-  smoothTouch: false,
-  touchMultiplier: 2,
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
 })
 
 function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
+    lenis.raf(time)
+    requestAnimationFrame(raf)
 }
 
 requestAnimationFrame(raf)
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeApp() {
     // Profile Dropdown Logic (Hamburger Menu)
     const profileBtn = document.getElementById('profile-menu-button');
     const profileMenu = document.getElementById('profile-menu');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         profileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             profileMenu.classList.toggle('hidden');
-            
+
             // Close notification menu if open
             const notifMenu = document.getElementById('notification-dropdown');
             if (notifMenu && !notifMenu.classList.contains('hidden')) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         notifBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             notifMenu.classList.toggle('hidden');
-            
+
             // Close profile menu if open
             const profMenu = document.getElementById('profile-menu');
             if (profMenu && !profMenu.classList.contains('hidden')) {
@@ -89,16 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelInviteBtn = document.getElementById('cancel-invite-btn');
     const sendInviteBtn = document.getElementById('send-invites-btn');
 
-    console.log('Invite Logic Init:', { triggers: inviteTriggers.length, modal: !!inviteModal });
-
     if (inviteTriggers.length > 0 && inviteModal) {
         const closeModal = () => {
-            console.log('Closing modal');
             inviteModal.classList.add('hidden');
         };
 
         const openModal = (e) => {
-            console.log('Open modal clicked');
             e.preventDefault();
             e.stopPropagation();
             inviteModal.classList.remove('hidden');
@@ -116,29 +112,27 @@ document.addEventListener('DOMContentLoaded', () => {
             sendInviteBtn.addEventListener('click', () => {
                 const emailsInput = document.getElementById('invite-emails');
                 const emails = emailsInput ? emailsInput.value : '';
-                
+
                 if (emails.trim()) {
-                     alert(`Invitations sent to: ${emails}`);
-                     closeModal();
-                     // Reset form
-                     if (emailsInput) emailsInput.value = '';
-                     const messageInput = document.getElementById('invite-message');
-                     if (messageInput) messageInput.value = '';
+                    alert(`Invitations sent to: ${emails}`);
+                    closeModal();
+                    // Reset form
+                    if (emailsInput) emailsInput.value = '';
+                    const messageInput = document.getElementById('invite-message');
+                    if (messageInput) messageInput.value = '';
                 } else {
                     alert('Please enter at least one email address.');
                 }
             });
         }
-        
+
         // Close on backdrop click (click outside the modal panel)
         inviteModal.addEventListener('click', (e) => {
-             const modalPanel = inviteModal.querySelector('.relative.transform.overflow-hidden');
-             if (modalPanel && !modalPanel.contains(e.target)) {
-                 closeModal();
-             }
+            const modalPanel = inviteModal.querySelector('.relative.transform.overflow-hidden');
+            if (modalPanel && !modalPanel.contains(e.target)) {
+                closeModal();
+            }
         });
-    } else {
-        console.warn('Invite modal or triggers not found');
     }
 
     // Brief Detail Tabs Logic
@@ -149,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const tabElements = tabs.map(t => document.getElementById(t.id)).filter(el => el);
-    
+
     if (tabElements.length > 0) {
         tabs.forEach(tab => {
             const tabBtn = document.getElementById(tab.id);
@@ -163,10 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     tabs.forEach(t => {
                         const tBtn = document.getElementById(t.id);
                         const tContent = document.getElementById(t.contentId);
-                        
+
                         if (tBtn && tContent) {
                             tContent.classList.add('hidden');
-                            
+
                             // Reset classes
                             tBtn.classList.remove('border-blue-500', 'text-blue-600');
                             tBtn.classList.add('border-transparent', 'text-slate-500', 'hover:border-gray-300', 'hover:text-slate-700');
@@ -211,4 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}

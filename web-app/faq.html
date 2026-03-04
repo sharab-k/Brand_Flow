@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body class="bg-gray-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
@@ -62,14 +64,58 @@
 
           <!-- Right Actions -->
           <div class="flex items-center gap-3">
-            <button
-              class="text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-50 transition-colors relative">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                </path>
-              </svg>
-            </button>
+            <div class="relative flex items-center">
+              <button id="notification-button" data-dropdown-trigger data-dropdown-target="notification-dropdown"
+                  class="text-[#64748b] hover:text-[#0e1726] transition-colors relative h-10 w-10 flex items-center justify-center rounded-full hover:bg-gray-50 outline-none">
+                  <i class="ph ph-bell text-[20px]"></i>
+              </button>
+              <!-- Notification Dropdown -->
+              <div id="notification-dropdown" data-dropdown-content
+                  class="hidden absolute right-0 mt-3 top-full w-[85vw] max-w-[280px] md:w-[300px] animate-fade-in rounded-[10px] border border-[#e2e8f0] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden text-left z-50">
+                  <div class="flex items-center justify-between border-b border-[#e2e8f0] px-4 py-3 bg-white">
+                      <h4 class="text-[14px] font-bold text-[#0e1726]">Notifications</h4>
+                      <a href="javascript:void(0)"
+                          class="text-[12px] font-medium text-[#448ae6] hover:underline">Mark all as read</a>
+                  </div>
+                  <div class="max-h-[340px] overflow-y-auto w-full bg-white">
+                      <div class="p-3 border-b border-[#e2e8f0] bg-[#f8fafc] hover:bg-gray-50 transition-colors cursor-pointer w-full text-left">
+                          <div class="flex items-start justify-between mb-1 gap-2">
+                              <h5 class="text-[13px] font-bold text-[#0e1726] flex-1 leading-tight m-0">New Proposal Received</h5>
+                              <span class="text-[11px] text-[#64748b] whitespace-nowrap">Today</span>
+                          </div>
+                          <p class="text-[12px] text-[#64748b] leading-relaxed text-left w-full break-words m-0">Ecopack solutions submitted a proposal for "sustainable packaging fororganic skincare line"</p>
+                      </div>
+                      <div class="p-3 border-b border-[#e2e8f0] hover:bg-gray-50 transition-colors cursor-pointer w-full text-left bg-white">
+                          <div class="flex items-start justify-between mb-1 gap-2">
+                              <h5 class="text-[13px] font-bold text-[#0e1726] flex-1 leading-tight m-0">Proposal Accepted</h5>
+                              <span class="text-[11px] text-[#64748b] whitespace-nowrap">Yesterday</span>
+                          </div>
+                          <p class="text-[12px] text-[#64748b] leading-relaxed text-left w-full break-words m-0">Your proposal for "industrial metal components" has been accepted by TechMatch industries</p>
+                      </div>
+                      <div class="p-3 border-b border-[#e2e8f0] hover:bg-gray-50 transition-colors cursor-pointer w-full text-left bg-white">
+                          <div class="flex items-start justify-between mb-1 gap-2">
+                              <h5 class="text-[13px] font-bold text-[#0e1726] flex-1 leading-tight m-0">New Brief Invitation</h5>
+                              <span class="text-[11px] text-[#64748b] whitespace-nowrap">14/01/2026</span>
+                          </div>
+                          <p class="text-[12px] text-[#64748b] leading-relaxed text-left w-full break-words m-0">You have bee invited to submit a proposal for " Custom Furniture for Hotel Chain"</p>
+                      </div>
+                      <div class="p-3 border-b border-[#e2e8f0] hover:bg-gray-50 transition-colors cursor-pointer w-full text-left bg-white">
+                          <div class="flex items-start justify-between mb-1 gap-2">
+                              <h5 class="text-[13px] font-bold text-[#0e1726] flex-1 leading-tight m-0">New Brief Invitation</h5>
+                              <span class="text-[11px] text-[#64748b] whitespace-nowrap">12/01/2026</span>
+                          </div>
+                          <p class="text-[12px] text-[#64748b] leading-relaxed text-left w-full break-words m-0">You have bee invited to submit a proposal for " Custom Furniture for Hotel Chain"</p>
+                      </div>
+                      <div class="p-3 hover:bg-gray-50 transition-colors cursor-pointer w-full text-left bg-white">
+                          <div class="flex items-start justify-between mb-1 gap-2">
+                              <h5 class="text-[13px] font-bold text-[#0e1726] flex-1 leading-tight m-0">New Brief Invitation</h5>
+                              <span class="text-[11px] text-[#64748b] whitespace-nowrap">1 month ago</span>
+                          </div>
+                          <p class="text-[12px] text-[#64748b] leading-relaxed text-left w-full break-words m-0">You have bee invited to submit a proposal for " Custom Furniture for Hotel Chain"</p>
+                      </div>
+                  </div>
+              </div>
+            </div>
 
             <div class="w-px h-5 bg-gray-200 mx-1"></div>
 
