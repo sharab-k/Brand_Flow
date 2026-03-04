@@ -20,7 +20,7 @@ function raf(time) {
 requestAnimationFrame(raf)
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Profile Dropdown Logic
+    // Profile Dropdown Logic (Hamburger Menu)
     const profileBtn = document.getElementById('profile-menu-button');
     const profileMenu = document.getElementById('profile-menu');
 
@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         profileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             profileMenu.classList.toggle('hidden');
+            
             // Close notification menu if open
-            const notifMenu = document.getElementById('notification-menu');
+            const notifMenu = document.getElementById('notification-dropdown');
             if (notifMenu && !notifMenu.classList.contains('hidden')) {
                 notifMenu.classList.add('hidden');
             }
@@ -44,12 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Notification Dropdown Logic
     const notifBtn = document.getElementById('notification-button');
-    const notifMenu = document.getElementById('notification-menu');
+    const notifMenu = document.getElementById('notification-dropdown');
 
     if (notifBtn && notifMenu) {
         notifBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             notifMenu.classList.toggle('hidden');
+            
             // Close profile menu if open
             const profMenu = document.getElementById('profile-menu');
             if (profMenu && !profMenu.classList.contains('hidden')) {

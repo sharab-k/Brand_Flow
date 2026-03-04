@@ -1,0 +1,18 @@
+Brand flow ka signup page --> OTP verification --> Success
+
+Forgot password: Have to shift the body a little upwards, to align in the center
+
+The global header is not selecting other tabs when going towards brief and Messages
+
+Brief.html: The new layout will be implied can be found in the images.
+
+Create Brief is the new update, after clicking on in it its opening the AI Brief which has been removed and replaced with the new Mannual Brief (In the Figma Design)
+
+Brief overview pages will be updated, including View manufacturers and Proposals
+
+Messages.html is correctly but the design needs to be updated according to the new UI
+
+The hamburger icon, The notification icon, and the AI chat bubble is not functioning
+
+And lastly the footer and header and layout of Setting i.e Account, Organization Info, Security, needs to be updated.
+

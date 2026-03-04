@@ -26,14 +26,38 @@
                 class="text-2xl font-normal tracking-tighter text-[#0f172a]">.ai</span>
             </a>
           </div>
+
+          <!-- Right Side: Language Selector -->
+          <div class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="22" height="15"
+              class="rounded-sm shadow-[0_0_1px_rgba(0,0,0,0.2)]">
+              <clipPath id="s">
+                <path d="M0,0 v30 h60 v-30 z" />
+              </clipPath>
+              <clipPath id="t">
+                <path d="M30,15 h30 v15 z v-15 h-30 z h-30 v-15 z v15 h30 z" />
+              </clipPath>
+              <g clip-path="url(#s)">
+                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4" />
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+              </g>
+            </svg>
+            <span class="text-[13px] text-slate-700 font-medium">English</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
         </div>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1 w-full relative flex flex-col items-center justify-center pt-20 pb-10"
-      style="min-height: calc(100vh - 120px);">
-      <div class="w-full max-w-md mx-auto flex flex-col items-center justify-center px-4">
+    <main class="flex-1 w-full relative flex flex-col items-center justify-center p-4"
+      style="min-height: calc(100vh - 160px);">
+      <div class="w-full max-w-md mx-auto flex flex-col items-center justify-center">
 
         <!-- Mail Icon -->
         <div class="w-16 h-16 sm:w-[72px] sm:h-[72px] bg-[#4082ED] rounded-full flex items-center justify-center mb-6">
