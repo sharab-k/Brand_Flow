@@ -25,8 +25,7 @@
           <div class="flex items-center">
             <!-- Logo -->
             <a href="/" class="flex-shrink-0 flex items-center pr-6 border-r border-gray-100">
-              <span class="text-2xl font-bold tracking-tighter text-[#0f172a]">donau</span><span
-                class="text-2xl font-normal tracking-tighter text-[#0f172a]">.ai</span>
+              <img src="/logo.svg" alt="Donau AI Logo" class="h-8 w-auto">
             </a>
 
             <!-- Nav Links -->
@@ -548,8 +547,7 @@
           <!-- Brand Column -->
           <div>
             <div class="flex items-center mb-3">
-              <span class="text-2xl font-bold tracking-tighter text-[#0f172a]">donau</span><span
-                class="text-2xl font-normal tracking-tighter text-[#0f172a]">.ai</span>
+              <img src="/logo.svg" alt="Donau AI Logo" class="h-8 w-auto">
             </div>
             <p class="text-sm text-slate-500 leading-relaxed">AI-powered platform connecting brands with manufacturers
             </p>
@@ -635,6 +633,55 @@
       </path>
     </svg>
   </button>
+
+  <!-- AI Assistant Popup -->
+  <div id="ai-sidebar"
+    class="hidden fixed bottom-24 right-6 z-[100] w-[380px] bg-white rounded-[16px] shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col overflow-hidden border border-[#e2e8f0] transition-all duration-300 origin-bottom-right"
+    style="height: 520px;">
+    <!-- Header -->
+    <div class="px-5 py-4 border-b border-[#e2e8f0] flex items-center justify-between bg-white">
+      <div class="flex items-center gap-3">
+        <div class="text-[#3B82F6] flex-shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+          </svg>
+        </div>
+        <h2 class="text-[16px] font-bold text-[#0e1726] leading-tight">Donau AI Assistant</h2>
+      </div>
+      <button type="button" id="close-ai-sidebar"
+        class="text-[#64748b] hover:text-[#0e1726] focus:outline-none p-1.5 hover:bg-gray-50 rounded-full transition-colors flex-shrink-0">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="flex-1 overflow-y-auto p-5 bg-white flex flex-col gap-4">
+      <div class="bg-[#f0f7ff] text-[#0f172a] rounded-[10px] p-4 text-[14px] leading-relaxed w-[92%]">
+        I'm here to help you analyze new briefs, draft competitive proposals, or answer questions about active
+        invites.
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-5 border-t border-[#e2e8f0] bg-white">
+      <div class="relative flex items-center gap-3">
+        <input type="text"
+          class="block w-full rounded-xl border border-[#e2e8f0] py-[10px] px-4 text-[14px] text-[#0f172a] placeholder:text-[#94a3b8] focus:border-[#3B82F6] focus:outline-none focus:ring-1 focus:ring-[#3B82F6] transition-colors"
+          placeholder="Type your response...">
+        <button
+          class="bg-[#3B82F6] text-white rounded-xl hover:bg-[#2563eb] transition-colors shadow-sm focus:outline-none flex-shrink-0 flex items-center justify-center h-[42px] w-[42px]">
+          <svg class="w-5 h-5 block transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            style="margin-left: -2px;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="/main.js"></script>
 </body>
