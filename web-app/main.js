@@ -205,6 +205,88 @@ function initializeApp() {
             }
         });
     }
+
+    // Discussion Modal Logic
+    const discussionTriggers = document.querySelectorAll('.continue-discussion-trigger');
+    const discussionModal = document.getElementById('discussion-modal');
+    const cancelDiscussionBtn = document.getElementById('cancel-discussion-btn');
+    const confirmDiscussionBtn = document.getElementById('confirm-discussion-btn');
+
+    if (discussionTriggers.length > 0 && discussionModal) {
+        const closeModal = () => {
+            discussionModal.classList.add('hidden');
+        };
+
+        const openModal = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            discussionModal.classList.remove('hidden');
+        };
+
+        discussionTriggers.forEach(trigger => {
+            trigger.addEventListener('click', openModal);
+        });
+
+        if (cancelDiscussionBtn) {
+            cancelDiscussionBtn.addEventListener('click', closeModal);
+        }
+
+        if (confirmDiscussionBtn) {
+            confirmDiscussionBtn.addEventListener('click', () => {
+                alert('Discussion continued with manufacturer!');
+                closeModal();
+            });
+        }
+
+        // Close on backdrop click
+        discussionModal.addEventListener('click', (e) => {
+            const modalPanel = discussionModal.querySelector('.relative.transform.overflow-hidden');
+            if (modalPanel && !modalPanel.contains(e.target)) {
+                closeModal();
+            }
+        });
+    }
+
+    // Pause Modal Logic
+    const pauseTriggers = document.querySelectorAll('.pause-discussion-trigger');
+    const pauseModal = document.getElementById('pause-modal');
+    const cancelPauseBtn = document.getElementById('cancel-pause-btn');
+    const confirmPauseBtn = document.getElementById('confirm-pause-btn');
+
+    if (pauseTriggers.length > 0 && pauseModal) {
+        const closeModal = () => {
+            pauseModal.classList.add('hidden');
+        };
+
+        const openModal = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            pauseModal.classList.remove('hidden');
+        };
+
+        pauseTriggers.forEach(trigger => {
+            trigger.addEventListener('click', openModal);
+        });
+
+        if (cancelPauseBtn) {
+            cancelPauseBtn.addEventListener('click', closeModal);
+        }
+
+        if (confirmPauseBtn) {
+            confirmPauseBtn.addEventListener('click', () => {
+                alert('Discussion paused.');
+                closeModal();
+            });
+        }
+
+        // Close on backdrop click
+        pauseModal.addEventListener('click', (e) => {
+            const modalPanel = pauseModal.querySelector('.relative.transform.overflow-hidden');
+            if (modalPanel && !modalPanel.contains(e.target)) {
+                closeModal();
+            }
+        });
+    }
 }
 
 if (document.readyState === 'loading') {

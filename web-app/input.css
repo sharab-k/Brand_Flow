@@ -1,14 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer utilities {
-  @media (min-width: 768px) { 
-    .custom-sidebar { width: 216px !important; flex-shrink: 0 !important; } 
-    .custom-gap { gap: 64px !important; } 
-  } 
-  .pt-16 { padding-top: 4rem !important; } 
-  .pb-12 { padding-bottom: 3rem !important; } 
-  .text-donau-dark { color: #0f172a !important; } 
-  .bg-active-tab { background-color: #f0f7ff !important; }
+  @media (min-width: 768px) {
+    .custom-sidebar {
+      width: 216px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .custom-gap {
+      gap: 64px !important;
+    }
+  }
+
+  .pt-16 {
+    padding-top: 4rem !important;
+  }
+
+  .pb-12 {
+    padding-bottom: 3rem !important;
+  }
+
+  .text-donau-dark {
+    color: #0f172a !important;
+  }
+
+  .bg-active-tab {
+    background-color: #f0f7ff !important;
+  }
 }
