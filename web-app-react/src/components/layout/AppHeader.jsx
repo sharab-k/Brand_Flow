@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function AppHeader() {
+export default function AppHeader({ user, onLogout }) {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false)
   const [notifMenuOpen, setNotifMenuOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  // ... (ref hooks remain same)
   const profileBtnRef = useRef(null)
   const profileMenuRef = useRef(null)
   const notifBtnRef = useRef(null)
@@ -116,6 +117,7 @@ export default function AppHeader() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
+            {/* ... (notif section remains same) */}
             <div className="relative flex items-center">
               <button ref={notifBtnRef} onClick={toggleNotif} id="notification-button"
                 className="text-[#64748b] hover:text-[#0e1726] transition-colors relative h-10 w-10 flex items-center justify-center rounded-full hover:bg-gray-50 outline-none">
@@ -137,6 +139,7 @@ export default function AppHeader() {
                       </div>
                       <p className="text-[12px] text-[#64748b] leading-relaxed text-left w-full break-words m-0">EcoPacksolutions submitted a proposal for &quot;sustainable packaging for organic skincare line&quot;</p>
                     </div>
+                    {/* ... (other notifs remain same) */}
                     <div className="p-3 border-b border-[#e2e8f0] hover:bg-gray-50 transition-colors cursor-pointer w-full text-left bg-white">
                       <div className="flex items-start justify-between mb-1 gap-2">
                         <h5 className="text-[13px] font-bold text-[#0e1726] flex-1 leading-tight m-0">Proposal Accepted</h5>
@@ -173,7 +176,9 @@ export default function AppHeader() {
             <div className="w-px h-5 bg-gray-200 mx-1"></div>
 
             <div className="h-8 w-8 rounded-full flex items-center justify-center text-white text-xs font-medium"
-              style={{ backgroundColor: '#3B82F6' }}>E</div>
+              style={{ backgroundColor: '#3B82F6' }}>
+              {(user?.firstName || 'E').charAt(0).toUpperCase()}
+            </div>
 
             <div className="relative">
               <button ref={profileBtnRef} onClick={toggleProfile} id="profile-menu-button"
@@ -190,8 +195,8 @@ export default function AppHeader() {
                   className="absolute right-0 mt-2 w-[240px] bg-white rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.1)] border border-slate-100 z-50 flex flex-col overflow-hidden">
                   {/* User Info */}
                   <div className="px-5 py-4 border-b border-slate-50">
-                    <p className="text-sm font-bold text-slate-900">Emily Parker</p>
-                    <p className="text-[12px] text-slate-500 mt-0.5">emiltparker@gmail.com</p>
+                    <p className="text-sm font-bold text-slate-900">{user?.firstName || 'User'} {user?.lastName || ''}</p>
+                    <p className="text-[12px] text-slate-500 mt-0.5">{user?.email || 'user@example.com'}</p>
                   </div>
 
                   {/* Nav Links */}
@@ -238,28 +243,19 @@ export default function AppHeader() {
                       </svg>
                       <span className="text-[13px] font-medium">Settings</span>
                     </Link>
-                    <a href="#"
-                      className="flex items-center gap-3 px-5 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors">
-                      <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                          d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-                        </path>
-                      </svg>
-                      <span className="text-[13px] font-medium">Language</span>
-                    </a>
                   </div>
 
                   {/* Sign Out */}
                   <div className="py-2">
-                    <Link to="/" onClick={() => setProfileMenuOpen(false)}
-                      className="flex items-center gap-3 px-5 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors">
+                    <button onClick={() => { onLogout(); setProfileMenuOpen(false); }}
+                      className="w-full flex items-center gap-3 px-5 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors text-left outline-none">
                       <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                           d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
                         </path>
                       </svg>
                       <span className="text-[13px] font-medium">Sign Out</span>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               )}

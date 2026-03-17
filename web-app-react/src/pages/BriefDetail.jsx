@@ -1,12 +1,18 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import AppHeader from '../components/layout/AppHeader'
 import AppFooter from '../components/layout/AppFooter'
 import AIChatWidget from '../components/AIChatWidget'
 import DiscussionModal from '../components/modals/DiscussionModal'
 import PauseModal from '../components/modals/PauseModal'
+import { briefService } from '../services/briefService'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function BriefDetail() {
+  const location = useLocation()
+  const briefId = location.state?.briefId || 'BR12345678'
+  const { user, logout } = useAuth()
+  
   const [activeTab, setActiveTab] = useState('overview')
   const [isDiscussionModalOpen, setIsDiscussionModalOpen] = useState(false)
   const [isPauseModalOpen, setIsPauseModalOpen] = useState(false)
@@ -14,21 +20,60 @@ export default function BriefDetail() {
   const [messagePanel, setMessagePanel] = useState(null)
   const [proposalPanel, setProposalPanel] = useState(null)
 
+  const [brief, setBrief] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    const fetchBrief = async () => {
+      setIsLoading(true)
+      try {
+        const data = await briefService.getBriefById(briefId)
+        setBrief(data)
+      } catch (err) {
+        setError('Failed to load brief details.')
+        // Fallback for demo
+        setBrief({
+          id: briefId,
+          title: 'Premium Vitamin D3 Supplement',
+          category: 'Dietary Supplements',
+          createdDate: '12/01/2026',
+          description: 'We are looking for a manufacturer to produce a high-quality vitamin D3 supplement...',
+          budget: '€10,000 - €25,000 USD',
+          timeline: 'February 14, 2026',
+          volume: '250 units',
+          materials: 'Gelatin',
+          requirements: ['FDA registered facility', 'GMP certified', 'Third-party testing available'],
+          status: 'Active'
+        })
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchBrief()
+  }, [briefId])
+
   return (
-    <div className="bg-white text-slate-800 antialiased font-sans">
-      <AppHeader activeNav="briefs" />
+    <div className="bg-white text-slate-800 antialiased font-sans min-h-screen flex flex-col relative">
+      <AppHeader activeNav="briefs" user={user} onLogout={logout} />
+      
+      {isLoading && (
+        <div className="absolute inset-x-0 top-0 h-1 z-50">
+          <div className="h-full bg-blue-500 animate-pulse w-full"></div>
+        </div>
+      )}
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 leading-tight mb-2">Premium Vitamin D3 Supplement</h1>
+            <h1 className="text-2xl font-bold text-slate-900 leading-tight mb-2">{brief?.title || 'Loading Brief...'}</h1>
             <p className="text-xs text-slate-500 flex items-center gap-2">
-              <span className="text-blue-500 font-medium">#BR12345678</span>
+              <span className="text-blue-500 font-medium">#{brief?.id || briefId}</span>
               <span className="w-1 h-1 rounded-full bg-slate-400"></span>
-              <span>Dietary Supplements</span>
+              <span>{brief?.category}</span>
               <span className="w-1 h-1 rounded-full bg-slate-400"></span>
-              <span>Created 12/01/2026</span>
+              <span>Created {brief?.createdDate}</span>
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -104,7 +149,7 @@ export default function BriefDetail() {
               <div className="bg-white rounded-xl border border-gray-100 p-8">
                 <h3 className="text-sm font-bold text-slate-900 mb-4">Brief Description</h3>
                 <p className="text-xs text-slate-500 leading-relaxed text-justify">
-                  We are looking for a manufacturer to produce a high-quality vitamin D3 supplement. The product should use cholecalciferol (D3) form with enhanced bioavailability. We need the product in both softgel and liquid drop formats.
+                  {brief?.description}
                 </p>
               </div>
 
@@ -114,11 +159,11 @@ export default function BriefDetail() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg flex items-center justify-between">
                     <span className="text-xs text-slate-500 font-medium">Category</span>
-                    <span className="text-xs font-bold text-slate-900">Dietary Supplements</span>
+                    <span className="text-xs font-bold text-slate-900">{brief?.category}</span>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg flex items-center justify-between">
                     <span className="text-xs text-slate-500 font-medium">Materials</span>
-                    <span className="text-xs font-bold text-slate-900">Gelatin</span>
+                    <span className="text-xs font-bold text-slate-900">{brief?.materials}</span>
                   </div>
                 </div>
               </div>
@@ -128,9 +173,9 @@ export default function BriefDetail() {
                 <h3 className="text-sm font-bold text-slate-900 mb-6">Brief Details</h3>
                 <div className="space-y-6">
                   {[
-                    { label: 'Budget', value: '€10,000 - €25,000 USD', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
-                    { label: 'Timeline', value: 'February 14, 2026', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
-                    { label: 'Volume', value: '250 units', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+                    { label: 'Budget', value: brief?.budget, icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+                    { label: 'Timeline', value: brief?.timeline, icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+                    { label: 'Volume', value: brief?.volume, icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
                   ].map((detail, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="bg-gray-50 p-2.5 rounded-lg text-slate-400 border border-gray-100">
@@ -149,7 +194,7 @@ export default function BriefDetail() {
               <div className="bg-white rounded-xl border border-gray-100 p-8">
                 <h3 className="text-sm font-bold text-slate-900 mb-6">Requirements</h3>
                 <div className="space-y-4">
-                  {['FDA registered facility', 'GMP certified', 'Third-party testing available', 'Experience with vitamin supplements', 'Minimum 2 years in business'].map((req, i) => (
+                  {brief?.requirements?.map((req, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="flex-shrink-0 w-5 h-5 rounded-full border border-green-500 flex items-center justify-center text-green-500 bg-white">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -157,6 +202,7 @@ export default function BriefDetail() {
                       <span className="text-xs text-slate-600 font-medium">{req}</span>
                     </div>
                   ))}
+                  {(!brief?.requirements || brief.requirements.length === 0) && <p className="text-xs text-slate-400 italic">No specific requirements listed.</p>}
                 </div>
               </div>
 

@@ -1,10 +1,52 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import AuthHeader from '../components/layout/AuthHeader'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function SignUp() {
   const navigate = useNavigate()
+  const { register } = useAuth()
   const [step, setStep] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  // Form State
+  const [formData, setFormData] = useState({
+    organizationSlug: '',
+    website: '',
+    description: '',
+    addressLine1: '',
+    addressLine2: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    country: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    twitter: '',
+    linkedin: ''
+  })
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleFinalSubmit = async (e) => {
+    if (e) e.preventDefault()
+    setError('')
+    setIsLoading(true)
+    try {
+      await register(formData)
+      navigate('/dashboard')
+    } catch (err) {
+      setError(err.response?.data?.message || 'Registration failed. Please check your information.')
+      // Optionally move back to a step with errors, but for now just show error
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <div className="bg-gray-50 text-slate-800 antialiased font-sans h-screen flex flex-col">
@@ -100,6 +142,11 @@ export default function SignUp() {
 
         {/* Form Cards */}
         <div className="bg-white p-12 rounded-3xl shadow-xl shadow-slate-200/50 border border-gray-100 w-full max-w-[640px] relative min-h-[500px]">
+          {error && (
+            <div className="mb-6 bg-red-50 text-red-600 p-3 rounded-lg text-sm text-center">
+              {error}
+            </div>
+          )}
 
           {/* Step 1: Organization Information */}
           {step === 1 && (
@@ -110,17 +157,17 @@ export default function SignUp() {
               <form className="space-y-6">
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Organization slug/username</label>
-                  <input type="text" placeholder="Enter slug/username"
+                  <input type="text" name="organizationSlug" value={formData.organizationSlug} onChange={handleInputChange} placeholder="Enter slug/username"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Website (optional)</label>
-                  <input type="url" placeholder="Enter URL"
+                  <input type="url" name="website" value={formData.website} onChange={handleInputChange} placeholder="Enter URL"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Description</label>
-                  <textarea rows="4" placeholder="Type here"
+                  <textarea rows="4" name="description" value={formData.description} onChange={handleInputChange} placeholder="Type here"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300 resize-none"></textarea>
                 </div>
 
@@ -139,43 +186,43 @@ export default function SignUp() {
               <form className="space-y-6">
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Address Line 1</label>
-                  <input type="text" placeholder="Street Address"
+                  <input type="text" name="addressLine1" value={formData.addressLine1} onChange={handleInputChange} placeholder="Street Address"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Address Line 2 (optional)</label>
-                  <input type="text" placeholder="Apartment, suite, etc."
+                  <input type="text" name="addressLine2" value={formData.addressLine2} onChange={handleInputChange} placeholder="Apartment, suite, etc."
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">City</label>
-                    <input type="text" placeholder="Enter City Name"
+                    <input type="text" name="city" value={formData.city} onChange={handleInputChange} placeholder="Enter City Name"
                       className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">State/Province</label>
-                    <select className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm text-slate-500 bg-white appearance-none">
-                      <option>Select State</option>
-                      <option>California</option>
-                      <option>New York</option>
-                      <option>Texas</option>
+                    <select name="state" value={formData.state} onChange={handleInputChange} className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm text-slate-500 bg-white appearance-none">
+                      <option value="">Select State</option>
+                      <option value="California">California</option>
+                      <option value="New York">New York</option>
+                      <option value="Texas">Texas</option>
                     </select>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Postal Code</label>
-                    <input type="text" placeholder="Enter Postal Code"
+                    <input type="text" name="postalCode" value={formData.postalCode} onChange={handleInputChange} placeholder="Enter Postal Code"
                       className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Country</label>
-                    <select className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm text-slate-500 bg-white appearance-none">
-                      <option>Select Country</option>
-                      <option>United States</option>
-                      <option>Germany</option>
-                      <option>United Kingdom</option>
+                    <select name="country" value={formData.country} onChange={handleInputChange} className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm text-slate-500 bg-white appearance-none">
+                      <option value="">Select Country</option>
+                      <option value="United States">United States</option>
+                      <option value="Germany">Germany</option>
+                      <option value="United Kingdom">United Kingdom</option>
                     </select>
                   </div>
                 </div>
@@ -198,23 +245,23 @@ export default function SignUp() {
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">First Name</label>
-                    <input type="text" placeholder="Enter First Name"
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="Enter First Name"
                       className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Last Name</label>
-                    <input type="text" placeholder="Enter Last Name"
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Enter Last Name"
                       className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Email</label>
-                  <input type="email" placeholder="Enter Email"
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Phone Number</label>
-                  <input type="tel" placeholder="Enter Phone Number"
+                  <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} placeholder="Enter Phone Number"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
 
@@ -232,21 +279,23 @@ export default function SignUp() {
               <h1 className="text-2xl font-bold text-center text-slate-900 mb-2">Social Media</h1>
               <p className="text-center text-slate-400 text-sm mb-10">Add your organization&apos;s social media links to complete your profile.</p>
 
-              <form className="space-y-6">
+              <form onSubmit={handleFinalSubmit} className="space-y-6">
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">Twitter/X Profile</label>
-                  <input type="text" placeholder="Enter URL"
+                  <input type="text" name="twitter" value={formData.twitter} onChange={handleInputChange} placeholder="Enter URL"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-slate-900 mb-2 ml-1">LinkedIn Company Page</label>
-                  <input type="text" placeholder="Enter URL"
+                  <input type="text" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="Enter URL"
                     className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all text-sm placeholder-gray-300" />
                 </div>
 
-                <button type="button" onClick={() => navigate('/dashboard')}
-                  className="w-full bg-slate-200 hover:bg-slate-300 text-slate-600 font-bold py-3.5 rounded-xl transition-all text-sm mt-4">Next</button>
-                <button type="button" onClick={() => navigate('/dashboard')}
+                <button type="submit" disabled={isLoading}
+                  className={`w-full bg-slate-200 hover:bg-slate-300 text-slate-600 font-bold py-3.5 rounded-xl transition-all text-sm mt-4 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}>
+                  {isLoading ? 'Creating Account...' : 'Next'}
+                </button>
+                <button type="button" onClick={handleFinalSubmit} disabled={isLoading}
                   className="w-full text-blue-500 hover:text-blue-700 font-bold py-2 rounded-xl transition-all text-sm">Skip</button>
               </form>
             </div>

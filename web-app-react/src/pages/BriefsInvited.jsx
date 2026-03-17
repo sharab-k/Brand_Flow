@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import AppHeader from '../components/layout/AppHeader'
 import AppFooter from '../components/layout/AppFooter'
 import AIChatWidget from '../components/AIChatWidget'
+import { useAuth } from '../contexts/AuthContext'
 
 const manufacturers = [
   { name: 'EcoPack Solutions', initials: 'E', location: 'United States', rating: '4.8', certs: ['GOTS', 'ISO 9001'], aiMatch: true },
@@ -13,21 +14,39 @@ const manufacturers = [
 ]
 
 export default function BriefsInvited() {
+  const { user, logout } = useAuth()
+  const location = useLocation()
+  const briefId = location.state?.briefId || 'BR12345678'
+  
   const [profilePanel, setProfilePanel] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const aiMatched = manufacturers.filter(m => m.aiMatch)
   const otherManufacturers = manufacturers.filter(m => !m.aiMatch)
 
-  return (
-    <div className="bg-[#fafafa] text-slate-800 antialiased font-sans">
-      <AppHeader activeNav="briefs" />
+  useEffect(() => {
+    // Simulate fetching manufacturers for this brief
+    setIsLoading(true)
+    const timer = setTimeout(() => setIsLoading(false), 500)
+    return () => clearTimeout(timer)
+  }, [briefId])
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  return (
+    <div className="bg-[#fafafa] text-slate-800 antialiased font-sans min-h-screen flex flex-col relative">
+      <AppHeader activeNav="briefs" user={user} onLogout={logout} />
+
+      {isLoading && (
+        <div className="absolute inset-x-0 top-0 h-1 z-50">
+          <div className="h-full bg-blue-500 animate-pulse w-full"></div>
+        </div>
+      )}
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
         {/* Page Header */}
         <div className="flex justify-between items-end mb-8">
           <div>
             <h1 className="text-[26px] font-bold text-slate-900 tracking-tight">Matched Manufacturers</h1>
-            <p className="text-[14px] text-slate-500 mt-1">AI-matched based on your brief requirements.</p>
+            <p className="text-[14px] text-slate-500 mt-1">AI-matched based on your brief <span className="text-blue-500 font-medium">#{briefId}</span> requirements.</p>
           </div>
           <button className="bg-[#3b82f6] text-white px-6 py-2.5 rounded-lg text-[14px] font-bold hover:bg-blue-600 transition-colors shadow-sm">
             Send To All

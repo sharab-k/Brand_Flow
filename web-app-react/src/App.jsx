@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import useLenis from './hooks/useLenis'
+import { AuthProvider } from './contexts/AuthContext'
+import ProtectedRoute from './components/auth/ProtectedRoute'
 
 // Auth Pages
 import SignIn from './pages/SignIn'
+// ... (rest of imports remain same)
 import SignUp from './pages/SignUp'
 import ForgotPassword from './pages/ForgotPassword'
 import OTPVerification from './pages/OTPVerification'
@@ -23,7 +26,7 @@ import ProductCategories from './pages/ProductCategories'
 import Messages from './pages/Messages'
 import Settings from './pages/Settings'
 import SettingsProfile from './pages/SettingsProfile'
-import SettingsOrganizationInfo from './pages/SettingsOrganizationInfo'
+import SettingsOrgInfo from './pages/SettingsOrgInfo'
 import SettingsSecurity from './pages/SettingsSecurity'
 import SettingsBilling from './pages/SettingsBilling'
 
@@ -46,48 +49,50 @@ function App() {
   useLenis()
 
   return (
-    <Routes>
-      {/* Auth */}
-      <Route path="/" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/otp-verification" element={<OTPVerification />} />
-      <Route path="/create-new-password" element={<CreateNewPassword />} />
-      <Route path="/password-successful" element={<PasswordSuccessful />} />
+    <AuthProvider>
+      <Routes>
+        {/* Auth */}
+        <Route path="/" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp-verification" element={<OTPVerification />} />
+        <Route path="/create-new-password" element={<CreateNewPassword />} />
+        <Route path="/password-successful" element={<PasswordSuccessful />} />
 
-      {/* Dashboard & Briefs */}
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/briefs" element={<Briefs />} />
-      <Route path="/briefs-invited" element={<BriefsInvited />} />
-      <Route path="/brief-detail" element={<BriefDetail />} />
-      <Route path="/create-brief-manual" element={<CreateBriefManual />} />
-      <Route path="/create-brief-ai" element={<CreateBriefAI />} />
-      <Route path="/ai-brief-assistant" element={<AIBriefAssistant />} />
-      <Route path="/product-categories" element={<ProductCategories />} />
+        {/* Protected Dashboard & Briefs */}
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/briefs" element={<ProtectedRoute><Briefs /></ProtectedRoute>} />
+        <Route path="/briefs-invited" element={<ProtectedRoute><BriefsInvited /></ProtectedRoute>} />
+        <Route path="/brief-detail" element={<ProtectedRoute><BriefDetail /></ProtectedRoute>} />
+        <Route path="/create-brief-manual" element={<ProtectedRoute><CreateBriefManual /></ProtectedRoute>} />
+        <Route path="/create-brief-ai" element={<ProtectedRoute><CreateBriefAI /></ProtectedRoute>} />
+        <Route path="/ai-brief-assistant" element={<ProtectedRoute><AIBriefAssistant /></ProtectedRoute>} />
+        <Route path="/product-categories" element={<ProtectedRoute><ProductCategories /></ProtectedRoute>} />
 
-      {/* Messages & Settings */}
-      <Route path="/messages" element={<Messages />} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="/settings-profile" element={<SettingsProfile />} />
-      <Route path="/setting-organization-info" element={<SettingsOrganizationInfo />} />
-      <Route path="/setting-security" element={<SettingsSecurity />} />
-      <Route path="/settings-billing" element={<SettingsBilling />} />
+        {/* Protected Messages & Settings */}
+        <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+        <Route path="/settings-profile" element={<ProtectedRoute><SettingsProfile /></ProtectedRoute>} />
+        <Route path="/setting-organization-info" element={<ProtectedRoute><SettingsOrgInfo /></ProtectedRoute>} />
+        <Route path="/setting-security" element={<ProtectedRoute><SettingsSecurity /></ProtectedRoute>} />
+        <Route path="/settings-billing" element={<ProtectedRoute><SettingsBilling /></ProtectedRoute>} />
 
-      {/* Info Pages */}
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/for-brands" element={<ForBrands />} />
-      <Route path="/for-manufacturers" element={<ForManufacturers />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/faq" element={<FAQ />} />
-      <Route path="/help-center" element={<HelpCenter />} />
-      <Route path="/support" element={<Support />} />
-      <Route path="/documentation" element={<Documentation />} />
-      <Route path="/status" element={<Status />} />
-      <Route path="/success-stories" element={<SuccessStories />} />
-      <Route path="/privacy" element={<Privacy />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/report-issue" element={<ReportIssue />} />
-    </Routes>
+        {/* Info Pages (Public) */}
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/for-brands" element={<ForBrands />} />
+        <Route path="/for-manufacturers" element={<ForManufacturers />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/help-center" element={<HelpCenter />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/documentation" element={<Documentation />} />
+        <Route path="/status" element={<Status />} />
+        <Route path="/success-stories" element={<SuccessStories />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/report-issue" element={<ReportIssue />} />
+      </Routes>
+    </AuthProvider>
   )
 }
 
