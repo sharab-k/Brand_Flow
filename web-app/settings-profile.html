@@ -217,10 +217,74 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 py-8 mt-auto">
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8 mt-12 w-full">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-center text-slate-400 text-sm">
-          &copy; 2026 DonauApp
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+          <!-- Logo Section -->
+          <div class="col-span-1">
+            <a href="/" class="flex items-center mb-6">
+              <img src="/Group 1597890314.svg" alt="Donau.ai Logo" class="h-8 w-auto">
+            </a>
+            <p class="text-[14px] text-slate-500 leading-relaxed">AI-powered platform connecting brands with manufacturers</p>
+          </div>
+
+          <!-- Empty spacer column for layout as per the mockup -->
+          <div class="hidden md:block"></div>
+
+          <!-- Links Sections Grouped on the Right -->
+          <div>
+            <h4 class="text-[14px] font-bold text-slate-900 mb-6 uppercase tracking-wider">Platform</h4>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Home</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Brands</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Manufacturers</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[14px] font-bold text-slate-900 mb-6 uppercase tracking-wider">Company</h4>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Contact</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[14px] font-bold text-slate-900 mb-6 uppercase tracking-wider">Contact</h4>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">info@donauai.com</a></li>
+              <li class="flex items-center gap-4 mt-2">
+                <a href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-[#F1F5F9] hover:bg-slate-200 rounded-full text-slate-700 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-[#F1F5F9] hover:bg-slate-200 rounded-full text-slate-700 transition-colors">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                  </svg>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-[#F1F5F9] hover:bg-slate-200 rounded-full text-slate-700 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.008 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.548 1.549zm1.336 9.764H5.666V9.75H8.344v8.589z">
+                    </path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-[14px] text-slate-500">© 2026 DonauApp</p>
+          <div class="flex items-center gap-2 text-[14px] text-slate-500">
+            <i class="ph ph-globe"></i>
+            <span>English</span>
+          </div>
         </div>
       </div>
     </footer>

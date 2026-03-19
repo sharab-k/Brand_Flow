@@ -62,7 +62,14 @@
 
           <!-- Right Actions -->
           <div class="flex items-center gap-3">
-            <div class="relative flex items-center">
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-500 hover:bg-slate-100 transition-colors focus:outline-none">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-3">
+              <div class="relative flex items-center">
               <button id="notification-button" data-dropdown-trigger data-dropdown-target="notification-dropdown"
                 class="text-[#64748b] hover:text-[#0e1726] transition-colors relative h-10 w-10 flex items-center justify-center rounded-full hover:bg-gray-50 outline-none">
                 <i class="ph ph-bell text-[20px]"></i>
@@ -219,13 +226,14 @@
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
       <!-- Header Section -->
       <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-8">
         <div>
@@ -233,6 +241,11 @@
           <p class="text-slate-500 mt-1">
             Manage your product briefs and track manufacturer engagement
           </p>
+        </div>
+        <div class="md:hidden w-full mt-2">
+          <button class="w-full bg-blue-500 text-white font-medium py-3 rounded-xl hover:bg-blue-600 transition-colors">
+            Create Brief
+          </button>
         </div>
       </div>
 
@@ -255,13 +268,13 @@
       </div>
 
       <!-- Stats Grid - 4 cards in 1 row -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
         <div class="bg-white p-5 rounded-xl border border-slate-200 flex items-center justify-between">
           <div>
             <p class="text-slate-500 text-xs font-medium">Active Briefs</p>
             <h3 class="text-2xl font-bold text-slate-900 mt-1">15</h3>
           </div>
-          <div class="bg-slate-50 p-2.5 rounded-lg text-slate-400">
+          <div class="hidden md:block bg-slate-50 p-2.5 rounded-lg text-slate-400">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -275,7 +288,7 @@
             <p class="text-slate-500 text-xs font-medium">Under Discussion</p>
             <h3 class="text-2xl font-bold text-slate-900 mt-1">3</h3>
           </div>
-          <div class="bg-slate-50 p-2.5 rounded-lg text-slate-400">
+          <div class="hidden md:block bg-slate-50 p-2.5 rounded-lg text-slate-400">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
@@ -289,7 +302,7 @@
             <p class="text-slate-500 text-xs font-medium">Proposals Received</p>
             <h3 class="text-2xl font-bold text-slate-900 mt-1">5</h3>
           </div>
-          <div class="bg-slate-50 p-2.5 rounded-lg text-slate-400">
+          <div class="hidden md:block bg-slate-50 p-2.5 rounded-lg text-slate-400">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
@@ -303,7 +316,7 @@
             <p class="text-slate-500 text-xs font-medium">Matched Manufacturers</p>
             <h3 class="text-2xl font-bold text-slate-900 mt-1">2</h3>
           </div>
-          <div class="bg-slate-50 p-2.5 rounded-lg text-slate-400">
+          <div class="hidden md:block bg-slate-50 p-2.5 rounded-lg text-slate-400">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -325,6 +338,36 @@
             <div class="space-y-4">
               <!-- Brief Card 1 - Draft -->
               <div class="bg-gray-50 p-4 sm:p-5 rounded-xl">
+                <!-- Mobile Card Content -->
+                <div class="block md:hidden mb-1">
+                  <div class="flex justify-between items-center mb-3">
+                    <div class="flex items-center gap-2">
+                       <span class="px-4 py-1 rounded-full font-normal" style="background-color: #E0F2FE; color: #00A3FF; font-size: 13px;">In Discussion</span>
+                       <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <a href="brief-detail.html" class="text-[13px] font-medium flex items-center gap-1 text-[#3B82F6] hover:text-[#2563EB]">
+                      View Details
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19.5l15-15m0 0H8.25m10.75 0v10.75"></path></svg>
+                    </a>
+                  </div>
+                  <div class="mb-4">
+                    <h3 class="text-[16px] font-bold text-slate-900 mb-1 leading-tight">Premium Vitamin D3 Supplement</h3>
+                    <p class="text-[14px] text-slate-500">Evergreenapparel.co</p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[12px] font-medium text-slate-700 rounded-full border border-gray-200">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                      Dietry Supplements
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[12px] font-medium text-slate-700 rounded-full border border-gray-200">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      €1000 - €100000
+                    </span>
+                  </div>
+                </div>
+                <!-- Desktop Card Content -->
+                <div class="hidden md:block">
+
                 <div class="flex justify-between items-start mb-3">
                   <div>
                     <div class="flex items-center gap-2">
@@ -337,7 +380,8 @@
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                      </div>
+      
+                </div>                </div>
                     </div>
                   </div>
                   <a href="brief-detail.html" class="text-xs font-medium flex items-center gap-1"
@@ -348,33 +392,41 @@
                     </svg>
                   </a>
                 </div>
-                <p class="text-sm text-slate-500 mb-4 line-clamp-2">
-                  This brief is being created with AI assistance. The AI will help you fill in the details.
-                </p>
-                <div class="flex gap-3">
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600">
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                      </path>
-                    </svg>
-                    Dietry Supplements
-                  </span>
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600">
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                      </path>
-                    </svg>
-                    €1000 - €100000 USD
-                  </span>
-                </div>
+
               </div>
 
               <!-- Brief Card 2 - Active -->
               <div class="bg-gray-50 p-4 sm:p-5 rounded-xl">
+                <!-- Mobile Card Content -->
+                <div class="block md:hidden mb-1">
+                  <div class="flex justify-between items-center mb-3">
+                    <div class="flex items-center gap-2">
+                       <span class="px-4 py-1 rounded-full font-normal" style="background-color: #E0F2FE; color: #00A3FF; font-size: 13px;">In Discussion</span>
+                       <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <a href="brief-detail.html" class="text-[13px] font-medium flex items-center gap-1 text-[#3B82F6] hover:text-[#2563EB]">
+                      View Details
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19.5l15-15m0 0H8.25m10.75 0v10.75"></path></svg>
+                    </a>
+                  </div>
+                  <div class="mb-4">
+                    <h3 class="text-[16px] font-bold text-slate-900 mb-1 leading-tight">Premium Vitamin D3 Supplement</h3>
+                    <p class="text-[14px] text-slate-500">Evergreenapparel.co</p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[12px] font-medium text-slate-700 rounded-full border border-gray-200">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                      Dietry Supplements
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[12px] font-medium text-slate-700 rounded-full border border-gray-200">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      €1000 - €100000
+                    </span>
+                  </div>
+                </div>
+                <!-- Desktop Card Content -->
+                <div class="hidden md:block">
+
                 <div class="flex justify-between items-start mb-3">
                   <div>
                     <div class="flex items-center gap-2">
@@ -387,7 +439,8 @@
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                      </div>
+      
+                </div>                </div>
                     </div>
                   </div>
                   <a href="brief-detail.html" class="text-xs font-medium flex items-center gap-1"
@@ -398,33 +451,41 @@
                     </svg>
                   </a>
                 </div>
-                <p class="text-sm text-slate-500 mb-4 line-clamp-2">
-                  This brief is being created with AI assistance. The AI will help you fill in the details.
-                </p>
-                <div class="flex gap-3">
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600">
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                      </path>
-                    </svg>
-                    Dietry Supplements
-                  </span>
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600">
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                      </path>
-                    </svg>
-                    €1000 - €100000 USD
-                  </span>
-                </div>
+
               </div>
 
               <!-- Brief Card 3 - Invited -->
               <div class="bg-gray-50 p-4 sm:p-5 rounded-xl">
+                <!-- Mobile Card Content -->
+                <div class="block md:hidden mb-1">
+                  <div class="flex justify-between items-center mb-3">
+                    <div class="flex items-center gap-2">
+                       <span class="px-4 py-1 rounded-full font-normal" style="background-color: #E0F2FE; color: #00A3FF; font-size: 13px;">In Discussion</span>
+                       <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <a href="brief-detail.html" class="text-[13px] font-medium flex items-center gap-1 text-[#3B82F6] hover:text-[#2563EB]">
+                      View Details
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19.5l15-15m0 0H8.25m10.75 0v10.75"></path></svg>
+                    </a>
+                  </div>
+                  <div class="mb-4">
+                    <h3 class="text-[16px] font-bold text-slate-900 mb-1 leading-tight">Premium Vitamin D3 Supplement</h3>
+                    <p class="text-[14px] text-slate-500">Evergreenapparel.co</p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[12px] font-medium text-slate-700 rounded-full border border-gray-200">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                      Dietry Supplements
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[12px] font-medium text-slate-700 rounded-full border border-gray-200">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      €1000 - €100000
+                    </span>
+                  </div>
+                </div>
+                <!-- Desktop Card Content -->
+                <div class="hidden md:block">
+
                 <div class="flex justify-between items-start mb-3">
                   <div>
                     <div class="flex items-center gap-2">
@@ -437,7 +498,8 @@
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                      </div>
+      
+                </div>                </div>
                     </div>
                   </div>
                   <a href="brief-detail.html" class="text-xs font-medium flex items-center gap-1"
@@ -448,29 +510,7 @@
                     </svg>
                   </a>
                 </div>
-                <p class="text-sm text-slate-500 mb-4 line-clamp-2">
-                  This brief is being created with AI assistance. The AI will help you fill in the details.
-                </p>
-                <div class="flex gap-3">
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600">
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                      </path>
-                    </svg>
-                    Dietry Supplements
-                  </span>
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-medium text-slate-600">
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                      </path>
-                    </svg>
-                    €1000 - €100000 USD
-                  </span>
-                </div>
+
               </div>
             </div>
           </div>
@@ -541,147 +581,95 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 mt-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-          <!-- Brand Column -->
-          <div>
-            <div class="flex items-center mb-3">
-              <img src="/logo.svg" alt="Donau AI Logo" class="h-8 w-auto">
-            </div>
-            <p class="text-sm text-slate-500 leading-relaxed">AI-powered platform connecting brands with manufacturers
-            </p>
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8 mt-12 w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+          <!-- Logo Section -->
+          <div class="col-span-1">
+            <a href="/" class="flex items-center mb-6">
+              <img src="/Group 1597890314.svg" alt="Donau.ai Logo" class="h-8 w-auto">
+            </a>
+            <p class="text-[14px] text-slate-500 leading-relaxed">AI-powered platform connecting brands with manufacturers</p>
           </div>
 
-          <!-- Platform Column -->
-          <div>
-            <h4 class="text-sm font-bold text-slate-900 mb-4">Platform</h4>
-            <ul class="space-y-2.5">
-              <li><a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Home</a></li>
-              <li><a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Brands</a></li>
-              <li><a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Manufacturers</a>
-              </li>
+          <!-- Empty spacer column for layout as per the mockup -->
+          <div class="hidden md:block"></div>
+
+          <!-- Links Sections Grouped on the Right -->
+          <div class="border-b border-gray-100 md:border-none py-4 md:py-0">
+            <h4 class="text-[14px] font-bold text-slate-900 mb-0 md:mb-6 uppercase tracking-wider flex justify-between items-center cursor-pointer md:cursor-auto" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+              Platform
+              <svg class="w-4 h-4 md:hidden text-slate-400 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </h4>
+            <ul class="space-y-4 mt-4 md:mt-0 hidden md:block">
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Home</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Brands</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Manufacturers</a></li>
             </ul>
           </div>
-
-          <!-- Company Column -->
-          <div>
-            <h4 class="text-sm font-bold text-slate-900 mb-4">Company</h4>
-            <ul class="space-y-2.5">
-              <li><a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Contact</a></li>
-              <li><a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Privacy Policy</a>
-              </li>
-              <li><a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Terms of Service</a>
-              </li>
+          <div class="border-b border-gray-100 md:border-none py-4 md:py-0">
+            <h4 class="text-[14px] font-bold text-slate-900 mb-0 md:mb-6 uppercase tracking-wider flex justify-between items-center cursor-pointer md:cursor-auto" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+              Company
+              <svg class="w-4 h-4 md:hidden text-slate-400 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </h4>
+            <ul class="space-y-4 mt-4 md:mt-0 hidden md:block">
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Contact</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">Terms of Service</a></li>
             </ul>
           </div>
-
-          <!-- Contact Column -->
-          <div>
-            <h4 class="text-sm font-bold text-slate-900 mb-4">Contact</h4>
-            <p class="text-sm text-slate-500 mb-4">info@donauai.com</p>
-            <div class="flex gap-3">
-              <a href="#"
-                class="w-9 h-9 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 transition-colors">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                </svg>
-              </a>
-              <a href="#"
-                class="w-9 h-9 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 transition-colors">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
-                </svg>
-              </a>
-              <a href="#"
-                class="w-9 h-9 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 transition-colors">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.008 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.548 1.549zm1.336 9.764H5.666V9.75H8.344v8.589z">
-                  </path>
-                </svg>
-              </a>
-            </div>
+          <div class="border-b border-gray-100 md:border-none py-4 md:py-0">
+            <h4 class="text-[14px] font-bold text-slate-900 mb-0 md:mb-6 uppercase tracking-wider flex justify-between items-center cursor-pointer md:cursor-auto" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+              Contact
+              <svg class="w-4 h-4 md:hidden text-slate-400 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </h4>
+            <ul class="space-y-4 mt-4 md:mt-0 hidden md:block">
+              <li><a href="#" class="text-[14px] text-slate-500 hover:text-blue-600 transition-colors">info@donauai.com</a></li>
+              <li class="flex items-center gap-4 mt-2">
+                <a href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-[#F1F5F9] hover:bg-slate-200 rounded-full text-slate-700 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-[#F1F5F9] hover:bg-slate-200 rounded-full text-slate-700 transition-colors">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                  </svg>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-[#F1F5F9] hover:bg-slate-200 rounded-full text-slate-700 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.008 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.548 1.549zm1.336 9.764H5.666V9.75H8.344v8.589z">
+                    </path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <!-- Bottom Bar -->
-        <div class="border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-slate-500">&copy; 2026 DonauApp</p>
-          <div class="flex items-center gap-2 text-sm text-slate-500">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-              </path>
-            </svg>
-            English
+        <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
+          <p class="text-[14px] text-slate-500 order-2 md:order-1">© 2026 DonauApp</p>
+          <div class="flex flex-wrap items-center justify-center gap-6 md:gap-4 text-[14px] text-slate-500 order-1 md:order-2 w-full md:w-auto">
+            <div class="flex items-center gap-2">
+              <i class="ph ph-globe"></i>
+              <span>English</span>
+            </div>
+            <div class="flex items-center gap-2 font-medium">
+              <i class="ph ph-currency-eur"></i>
+              <span>EUR</span>
+            </div>
           </div>
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- Floating AI Button -->
-  <button id="ai-chat-toggle"
-    class="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg text-white flex items-center justify-center transition-transform hover:scale-105 focus:outline-none z-[90]"
-    style="background: linear-gradient(135deg, #3B82F6, #2563EB);">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
-      </path>
-    </svg>
-  </button>
 
-  <!-- AI Assistant Popup -->
-  <div id="ai-sidebar"
-    class="hidden fixed bottom-24 right-6 z-[100] w-[380px] bg-white rounded-[16px] shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col overflow-hidden border border-[#e2e8f0] transition-all duration-300 origin-bottom-right"
-    style="height: 520px;">
-    <!-- Header -->
-    <div class="px-5 py-4 border-b border-[#e2e8f0] flex items-center justify-between bg-white">
-      <div class="flex items-center gap-3">
-        <div class="text-[#3B82F6] flex-shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-          </svg>
-        </div>
-        <h2 class="text-[16px] font-bold text-[#0e1726] leading-tight">Donau AI Assistant</h2>
-      </div>
-      <button type="button" id="close-ai-sidebar"
-        class="text-[#64748b] hover:text-[#0e1726] focus:outline-none p-1.5 hover:bg-gray-50 rounded-full transition-colors flex-shrink-0">
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Chat Area -->
-    <div class="flex-1 overflow-y-auto p-5 bg-white flex flex-col gap-4">
-      <div class="bg-[#f0f7ff] text-[#0f172a] rounded-[10px] p-4 text-[14px] leading-relaxed w-[92%]">
-        I'm here to help you analyze new briefs, draft competitive proposals, or answer questions about active
-        invites.
-      </div>
-    </div>
-
-    <!-- Input Area -->
-    <div class="p-5 border-t border-[#e2e8f0] bg-white">
-      <div class="relative flex items-center gap-3">
-        <input type="text"
-          class="block w-full rounded-xl border border-[#e2e8f0] py-[10px] px-4 text-[14px] text-[#0f172a] placeholder:text-[#94a3b8] focus:border-[#3B82F6] focus:outline-none focus:ring-1 focus:ring-[#3B82F6] transition-colors"
-          placeholder="Type your response...">
-        <button
-          class="bg-[#3B82F6] text-white rounded-xl hover:bg-[#2563eb] transition-colors shadow-sm focus:outline-none flex-shrink-0 flex items-center justify-center h-[42px] w-[42px]">
-          <svg class="w-5 h-5 block transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            style="margin-left: -2px;">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
 
   <script type="module" src="/main.js"></script>
 </body>
