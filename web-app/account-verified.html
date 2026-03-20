@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DonauAI - Verify Your Email</title>
+  <title>DonauAI - Account Verified</title>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,18 +45,20 @@
     <div class="w-full max-w-[440px] flex flex-col items-center text-center">
       <!-- Icon -->
       <div class="w-16 h-16 bg-[#3B82F6] rounded-full flex items-center justify-center mb-8 shadow-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
         </svg>
       </div>
 
-      <h1 class="text-[32px] font-bold text-[#0f172a] mb-2 tracking-tight">Verify Your Email</h1>
+      <h1 class="text-[32px] font-bold text-[#0f172a] mb-2 tracking-tight">Account Verified</h1>
       <p class="text-[#64748b] text-[15px] mb-10 leading-relaxed">
-        We've sent a verification link to your email. Please verify to activate your account.
+        Your email has been verified and your account is now active.
       </p>
 
-      <button type="button" @click="window.location.href='account-verified.html'"
-        class="w-full bg-[#3B82F6] hover:bg-blue-600 text-white font-medium py-3.5 rounded-lg transition-all text-[15px] h-[48px] shadow-sm">Sign In</button>
+      <button type="button" @click="window.location.href='onboarding.html'"
+                    class="w-full h-[52px] bg-[#2563eb] text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                Sign In
+            </button>
 
       <!-- Bottom Links -->
       <div class="mt-40">
