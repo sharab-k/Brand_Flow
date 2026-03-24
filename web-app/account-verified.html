@@ -1,94 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DonauAI - Account Verified</title>
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-white text-slate-800 antialiased font-sans h-full">
-  <div id="app" class="flex flex-col min-h-screen">
-    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <!-- Left Side: Logo only for Auth pages -->
-          <div class="flex items-center">
-            <!-- Logo -->
-            <a href="/" class="flex-shrink-0 flex items-center pr-6">
-              <img src="/logo.svg" alt="Donau AI Logo" class="h-8 w-auto">
-            </a>
-          </div>
+<body class="bg-white text-slate-800 antialiased font-sans flex flex-col min-h-screen" x-data="{}">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Left Side: Logo only for Auth pages -->
+        <div class="flex items-center">
+          <!-- Logo -->
+          <a href="/" class="flex-shrink-0 flex items-center pr-6">
+            <img src="/logo.svg" alt="Donau AI Logo" class="h-8 w-auto">
+          </a>
+        </div>
 
-          <!-- Right Side: Language Selector -->
-          <div class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="22" height="15"
-              class="rounded-sm shadow-[0_0_1px_rgba(0,0,0,0.2)]">
-              <clipPath id="s">
-                <path d="M0,0 v30 h60 v-30 z" />
-              </clipPath>
-              <clipPath id="t">
-                <path d="M30,15 h30 v15 z v-15 h-30 z h-30 v-15 z v15 h30 z" />
-              </clipPath>
-              <g clip-path="url(#s)">
-                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
-                <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4" />
-                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
-              </g>
-            </svg>
-            <span class="text-[13px] text-slate-700 font-medium">English</span>
-            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
+        <!-- Right Side: Language Selector -->
+        <div class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="UK Flag" class="w-5 h-3.5 rounded-sm object-cover shadow-sm">
+          <span class="text-[13px] text-slate-700 font-medium ml-1">English</span>
+          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center justify-center p-4 pt-20">
-      <div class="w-full max-w-[400px] flex flex-col items-center text-center">
-        <!-- Success Icon -->
-        <svg class="mb-6 w-[72px] h-[72px]" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="40" fill="#4082ED" />
-          <path d="M28 40L36 48L54 30" stroke="white" stroke-width="3.5" stroke-linecap="round"
-            stroke-linejoin="round" />
+  <!-- Main Content -->
+  <main class="flex-grow flex flex-col items-center justify-center px-4">
+    <div class="w-full max-w-[440px] flex flex-col items-center text-center">
+      <!-- Icon -->
+      <div class="w-16 h-16 bg-[#3B82F6] rounded-full flex items-center justify-center mb-8 shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
         </svg>
-
-        <!-- Heading -->
-        <h1 class="text-[26px] sm:text-[28px] font-bold text-[#0f172a] mb-3 tracking-tight">Account Verified</h1>
-
-        <!-- Subtitle -->
-        <p class="text-[14px] sm:text-[15px] text-[#64748b] mb-8 leading-relaxed max-w-[360px]">
-          Your email has been successfully verified. You can now sign in to your dashboard.
-        </p>
-
-        <!-- Sign In Button -->
-        <button type="button" onclick="window.location.href='index.html'"
-          class="w-full max-w-[360px] text-white font-medium py-[14px] rounded-lg transition-all text-[15px] shadow-sm hover:bg-blue-600"
-          style="background-color: #4082ED;">
-          Sign In
-        </button>
       </div>
-    </main>
 
-    <!-- Footer -->
-    <footer class="w-full py-16 flex flex-col items-center justify-center gap-2 text-sm text-[#475569] shrink-0">
-      <div class="flex justify-center gap-1.5 font-medium">
-        <a href="privacy.html" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
-        <span class="px-1 text-slate-300">|</span>
-        <a href="terms.html" class="hover:text-slate-900 transition-colors">Terms of Service</a>
+      <h1 class="text-[32px] font-bold text-[#0f172a] mb-2 tracking-tight">Account Verified</h1>
+      <p class="text-[#64748b] text-[15px] mb-10 leading-relaxed">
+        Your email has been verified and your account is now active.
+      </p>
+
+      <button type="button" @click="window.location.href='index.html'"
+                    class="w-full h-[52px] bg-[#2563eb] text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                Sign In
+            </button>
+
+      <!-- Bottom Links -->
+      <div class="mt-40">
+        <div class="flex justify-center gap-2 text-[13px] text-slate-500 font-medium mb-3">
+          <a href="privacy.html" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms.html" class="hover:text-slate-900 transition-colors">Terms of Service</a>
+        </div>
+        <p class="text-[13px] text-slate-400">&copy; 2026 DonauAI</p>
       </div>
-      <p>&copy; 2026 DonauAI</p>
-    </footer>
-  </div>
+    </div>
+  </main>
 </body>
 
 </html>

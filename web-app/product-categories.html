@@ -243,87 +243,132 @@
         </div>
       </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 py-12 mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12 text-sm">
-          <div class="col-span-1">
-            <div class="flex items-center mb-4"><img src="/logo.svg" alt="Donau AI Logo" class="h-8 w-auto"></div>
-            <p class="text-sm text-slate-500 leading-relaxed">
-              AI-powered platform connecting brands with manufacturers
-            </p>
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
-            <ul class="space-y-2 text-sm text-slate-500">
-              <li><a href="dashboard.html" class="hover:text-blue-600">Home</a></li>
-              <li><a href="for-brands.html" class="hover:text-blue-600">For Brands</a></li>
-              <li>
-                <a href="for-manufacturers.html" class="hover:text-blue-600">For Manufacturers</a>
-              </li>
-              <li>
-                <a href="ai-brief-assistant.html" class="hover:text-blue-600">AI Brief Assistant</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
-            <ul class="space-y-2 text-sm text-slate-500">
-              <li>
-                <a href="documentation.html" class="hover:text-blue-600">API Documentation</a>
-              </li>
-              <li><a href="help-center.html" class="hover:text-blue-600">Help Center</a></li>
-              <li>
-                <a href="product-categories.html" class="hover:text-blue-600">Product Categories</a>
-              </li>
-              <li>
-                <a href="success-stories.html" class="hover:text-blue-600">Success Stories</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-4">Company</h4>
-            <ul class="space-y-2 text-sm text-slate-500">
-              <li><a href="about-us.html" class="hover:text-blue-600">About Us</a></li>
-              <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
-              <li>
-                <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="terms.html" class="hover:text-blue-600">Terms of Service</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-4">Support</h4>
-            <ul class="space-y-2 text-sm text-slate-500">
-              <li><a href="faq.html" class="hover:text-blue-600">FAQ</a></li>
-              <li>
-                <a href="support.html" class="hover:text-blue-600">Contact Support</a>
-              </li>
-              <li>
-                <a href="status.html" class="hover:text-blue-600">System Status</a>
-              </li>
-              <li>
-                <a href="report-issue.html" class="hover:text-blue-600">Report an Issue</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; 2026 DonauApp</p>
-          <div class="flex items-center gap-6 mt-4 md:mt-0">
-            <div class="flex gap-4">
-              <span>English</span> <span>EUR</span>
+    <!-- Desktop Footer -->
+    <footer class="hidden md:block bg-white border-t border-gray-200 py-12 shrink-0 relative mt-10 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div style="display:flex; flex-direction:row; justify-content:space-between; gap:40px; margin-bottom:40px;">
+                <div style="min-width:220px; max-width:280px; flex-shrink:0;">
+                    <div class="mb-4">
+                        <img src="/logo.svg" alt="Donau AI" class="h-6 w-auto">
+                    </div>
+                    <p class="text-[#475569] text-[13px] leading-relaxed max-w-[280px]">
+                        AI-powered platform connecting brands<br />with manufacturers
+                    </p>
+                </div>
+                <div style="display:flex; flex-direction:row; gap:80px; flex-wrap:nowrap;">
+                    <div class="text-left">
+                        <h4 class="font-bold text-[#0e1726] text-[14px] mb-4">Platform</h4>
+                        <ul class="space-y-[12px] text-[#475569] text-[13px]">
+                            <li><a href="home.html" class="hover:text-[#448ae6] transition-colors">Home</a></li>
+                            <li><a href="brands.html" class="hover:text-[#448ae6] transition-colors">Brands</a></li>
+                            <li><a href="manufacturers.html" class="hover:text-[#448ae6] transition-colors">Manufacturers</a></li>
+                        </ul>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-[#0e1726] text-[14px] mb-4">Company</h4>
+                        <ul class="space-y-[12px] text-[#475569] text-[13px]">
+                            <li><a href="contact.html" class="hover:text-[#448ae6] transition-colors">Contact</a></li>
+                            <li><a href="privacy-policy.html" class="hover:text-[#448ae6] transition-colors">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html" class="hover:text-[#448ae6] transition-colors">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-[#0e1726] text-[15px] mb-5">Contact</h4>
+                        <ul class="text-[#0e1726] text-[15px] mb-6">
+                            <li><a href="mailto:info@donauai.com"
+                                    class="hover:text-[#448ae6] transition-colors">info@donauai.com</a></li>
+                        </ul>
+                        <div style="display:flex; align-items:center; gap:16px;">
+                            <a href="#"
+                                class="w-[42px] h-[42px] rounded-full bg-[#f1f5f9] flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i
+                                    class="fa-brands fa-facebook-f text-[19px]"></i></a>
+                            <a href="#"
+                                class="w-[42px] h-[42px] rounded-full bg-[#f1f5f9] flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i
+                                    class="fa-brands fa-instagram text-[23px]"></i></a>
+                            <a href="#"
+                                class="w-[42px] h-[42px] rounded-full bg-[#f1f5f9] flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i
+                                    class="fa-brands fa-linkedin-in text-[19px]"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="border-t border-gray-200 pt-6" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
+                <p class="text-[13px] text-[#64748b]">&copy; 2026 DonauApp</p>
+                <div style="display:flex; align-items:center; gap:6px; cursor:pointer;" class="text-[13px] text-[#64748b] hover:text-[#0e1726]">
+                    <i class="ph ph-globe text-[16px]"></i>
+                    <span>English</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </footer>
+    <!-- Mobile Accordion Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 mt-0 md:hidden w-full shrink-0 relative">
+        <!-- Brand / Slogan -->
+        <div class="px-4 py-8 bg-white text-center border-b border-gray-200 flex flex-col items-center">
+            <img src="/logo.svg" alt="Donau AI" class="h-6 w-auto mb-3">
+            <p class="text-[#64748b] text-[13px] leading-relaxed max-w-[280px]">
+                AI-powered platform connecting brands with manufacturers
+            </p>
+        </div>
+        
+        <!-- Accordions -->
+        <div class="bg-white">
+            <div class="border-b border-gray-100">
+                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')" class="w-full py-4 px-4 flex justify-between items-center font-bold text-[#0e1726] text-[15px]">
+                    Platform <i class="ph ph-caret-down text-lg transition-transform duration-200"></i>
+                </button>
+                <ul class="hidden px-4 pb-4 space-y-3 text-[#475569] text-[14px] text-left">
+                    <li><a href="home.html" class="block py-1 hover:text-[#448ae6] transition-colors">Home</a></li>
+                    <li><a href="brands.html" class="block py-1 hover:text-[#448ae6] transition-colors">Brands</a></li>
+                    <li><a href="manufacturers.html" class="block py-1 hover:text-[#448ae6] transition-colors">Manufacturers</a></li>
+                </ul>
+            </div>
+            
+            <div class="border-b border-gray-100">
+                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')" class="w-full py-4 px-4 flex justify-between items-center font-bold text-[#0e1726] text-[15px]">
+                    Company <i class="ph ph-caret-down text-lg transition-transform duration-200"></i>
+                </button>
+                <ul class="hidden px-4 pb-4 space-y-3 text-[#475569] text-[14px] text-left">
+                    <li><a href="contact.html" class="block py-1 hover:text-[#448ae6] transition-colors">Contact</a></li>
+                    <li><a href="privacy-policy.html" class="block py-1 hover:text-[#448ae6] transition-colors">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html" class="block py-1 hover:text-[#448ae6] transition-colors">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="border-b border-gray-100">
+                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')" class="w-full py-4 px-4 flex justify-between items-center font-bold text-[#0e1726] text-[15px]">
+                    Support <i class="ph ph-caret-down text-lg transition-transform duration-200"></i>
+                </button>
+                <ul class="hidden px-4 pb-4 space-y-3 text-[#475569] text-[14px] text-left">
+                    <li><a href="mailto:info@donauai.com" class="block py-1 hover:text-[#448ae6] transition-colors">info@donauai.com</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bottom section -->
+        <div class="bg-gray-50 flex flex-col items-center py-8 gap-6">
+             <p class="text-[13px] text-[#64748b] w-full text-center px-8">&copy; 2026 DonauApp</p>
+            <div class="flex items-center gap-[16px]">
+                <a href="#" class="w-[42px] h-[42px] rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i class="fa-brands fa-facebook-f text-[19px]"></i></a>
+                <a href="#" class="w-[42px] h-[42px] rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i class="fa-brands fa-instagram text-[23px]"></i></a>
+                <a href="#" class="w-[42px] h-[42px] rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i class="fa-brands fa-linkedin-in text-[19px]"></i></a>
+            </div>
+            <div class="flex items-center justify-center w-full px-8 text-[13px] text-[#0e1726]">
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-[6px]">
+                        <i class="ph ph-globe text-[16px]"></i>
+                        <span>English</span>
+                    </div>
+                    <span>EUR</span>
+                </div>
+            </div>
+        </div>
     </footer>
   </div>
   <script type="module" src="/main.js"></script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 
 </html>
