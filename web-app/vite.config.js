@@ -38,7 +38,8 @@ export default defineConfig({
         success_stories: resolve(__dirname, 'success-stories.html'),
         support: resolve(__dirname, 'support.html'),
         terms: resolve(__dirname, 'terms.html'),
-        account_verified: resolve(__dirname, 'account-verified.html')
+        account_verified: resolve(__dirname, 'account-verified.html'),
+        onboarding: resolve(__dirname, 'onboarding.html')
       }
     }
   }
