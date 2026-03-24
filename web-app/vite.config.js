@@ -37,7 +37,8 @@ export default defineConfig({
         status: resolve(__dirname, 'status.html'),
         success_stories: resolve(__dirname, 'success-stories.html'),
         support: resolve(__dirname, 'support.html'),
-        terms: resolve(__dirname, 'terms.html')
+        terms: resolve(__dirname, 'terms.html'),
+        account_verified: resolve(__dirname, 'account-verified.html')
       }
     }
   }
