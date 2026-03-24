@@ -6,6 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DonauAI - Verify Your Email</title>
+  <meta name="robots" content="noindex, nofollow">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +56,7 @@
         We've sent a verification link to your email. Please verify to activate your account.
       </p>
 
-      <button type="button" @click="window.location.href='account-verified.html'"
+      <button type="button" @click="window.location.href = new URLSearchParams(window.location.search).get('flow') === 'forgot' ? 'create-new-password.html' : 'account-verified.html'"
         class="w-full bg-[#3B82F6] hover:bg-blue-600 text-white font-medium py-3.5 rounded-lg transition-all text-[15px] h-[48px] shadow-sm">Sign In</button>
 
       <!-- Bottom Links -->
