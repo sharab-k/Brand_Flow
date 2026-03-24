@@ -15,7 +15,7 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
-<body class="bg-white text-slate-800 antialiased font-sans">
+<body class="bg-white text-slate-800 antialiased font-inter">
   <div id="app">
     <!-- Header -->
     <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -303,7 +303,7 @@
       </div>
 
       <!-- Main List Container -->
-      <div class="bg-white rounded-2xl border border-gray-200 mb-8">
+      <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
         <!-- Filters -->
         <div class="flex flex-col md:flex-row justify-between items-center bg-white px-5 py-5 rounded-t-2xl">
           <div class="relative w-full md:w-auto">
@@ -328,14 +328,14 @@
         </div>
 
         <!-- Briefs List -->
-        <div class="space-y-4 py-4">
+        <div class="flex flex-col divide-y divide-gray-100">
           <!-- Brief Card 1 (Draft) -->
-          <div class="bg-slate-50 p-6 rounded-xl mx-4 relative group">
+          <div class="bg-white p-6 relative group transition-hover hover:bg-slate-50/50">
             <!-- Mobile Card Content -->
             <div class="block md:hidden mb-2">
               <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center gap-2">
-                  <span class="bg-[#F1F5F9] text-gray-600 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide">Draft</span>
+                  <span class="bg-slate-100 text-slate-600 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-slate-500/10">Draft</span>
                   <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <!-- 3 Dots Menu Button -->
@@ -372,8 +372,7 @@
               <div>
                 <div class="flex items-center gap-3">
                   <h3 class="text-[16px] font-bold text-slate-900">Premium Vitamin D3 Supplement</h3>
-                  <span
-                    class="bg-[#F1F5F9] text-gray-600 text-[12px] px-3 py-0.5 rounded-full font-medium tracking-wide">Draft</span>
+                  <span class="bg-slate-100 text-slate-600 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-slate-500/10">Draft</span>
                   <span class="text-gray-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -482,12 +481,12 @@
           </div>
 
           <!-- Brief Card 2 (Active) -->
-          <div class="bg-slate-50 p-6 rounded-xl mx-4 relative group">
+          <div class="bg-white p-6 relative group transition-hover hover:bg-slate-50/50">
             <!-- Mobile Card Content -->
             <div class="block md:hidden mb-2">
               <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center gap-2">
-                  <span class="bg-blue-100 text-blue-600 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide">Active</span>
+                  <span class="bg-green-100 text-green-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-green-600/20">Active</span>
                   <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <!-- 3 Dots Menu Button -->
@@ -525,7 +524,7 @@
                 <div class="flex items-center gap-3">
                   <h3 class="text-[16px] font-bold text-slate-900">Premium Vitamin D3 Supplement</h3>
                   <span
-                    class="bg-blue-100 text-blue-600 text-[12px] px-3 py-0.5 rounded-full font-medium tracking-wide">Active</span>
+                    class="bg-green-100 text-green-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-green-600/20">Active</span>
                   <span class="text-gray-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -633,12 +632,12 @@
             <!-- /Desktop Card Content -->
           </div>
           <!-- Brief Card 3 (Invited) -->
-          <div class="bg-slate-50 p-6 rounded-xl mx-4 relative group">
+          <div class="bg-white p-6 relative group transition-hover hover:bg-slate-50/50">
             <!-- Mobile Card Content -->
             <div class="block md:hidden mb-2">
               <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center gap-2">
-                  <span class="bg-indigo-100 text-indigo-600 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide">Invited</span>
+                  <span class="bg-blue-100 text-blue-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-blue-700/10">Invited</span>
                   <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <!-- 3 Dots Menu Button -->
@@ -676,7 +675,7 @@
                 <div class="flex items-center gap-3">
                   <h3 class="text-[16px] font-bold text-slate-900">Premium Vitamin D3 Supplement</h3>
                   <span
-                    class="bg-indigo-100 text-indigo-600 text-[12px] px-3 py-0.5 rounded-full font-medium tracking-wide">Invited</span>
+                    class="bg-blue-100 text-blue-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-blue-700/10">Invited</span>
                   <span class="text-gray-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -735,13 +734,23 @@
                 3 Proposals
               </span>
               <span class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-gray-200">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                12/02/2026
+              </span>
+            </div>
+            </div>
+            <!-- /Desktop Card Content -->
+          </div>
           <!-- Brief Card 4 (Matched) -->
-          <div class="bg-slate-50 p-6 rounded-xl mx-4 relative group">
+          <div class="bg-white p-6 relative group transition-hover hover:bg-slate-50/50">
             <!-- Mobile Card Content -->
             <div class="block md:hidden mb-2">
               <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center gap-2">
-                  <span class="bg-[#FEF6E1] text-[#D97706] text-[12px] px-3 py-1 rounded-full font-medium tracking-wide">Matched</span>
+                  <span class="bg-amber-100 text-amber-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-amber-700/10">Matched</span>
                   <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <button class="text-blue-500 hover:bg-blue-50 p-1.5 rounded-lg transition-colors">
@@ -767,8 +776,7 @@
               <div>
                 <div class="flex items-center gap-3">
                   <h3 class="text-[16px] font-bold text-slate-900">Premium Vitamin D3 Supplement</h3>
-                  <span
-                    class="bg-[#FEF6E1] text-[#D97706] text-[12px] px-3 py-0.5 rounded-full font-medium tracking-wide">Matched</span>
+                  <span class="bg-amber-100 text-amber-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-amber-700/10">Matched</span>
                   <span class="text-gray-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -838,12 +846,12 @@
             <!-- /Desktop Card Content -->
           </div>
           <!-- Brief Card 5 (Proposal Received) -->
-          <div class="bg-slate-50 p-6 rounded-xl mx-4 relative group">
+          <div class="bg-white p-6 relative group transition-hover hover:bg-slate-50/50">
             <!-- Mobile Card Content -->
             <div class="block md:hidden mb-2">
               <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center gap-2">
-                  <span class="bg-cyan-100 text-cyan-600 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide">Proposal Received</span>
+                  <span class="bg-cyan-100 text-cyan-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-cyan-700/10">Proposal Received</span>
                   <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <button class="text-blue-500 hover:bg-blue-50 p-1.5 rounded-lg transition-colors">
@@ -869,9 +877,7 @@
               <div>
                 <div class="flex items-center gap-3">
                   <h3 class="text-[16px] font-bold text-slate-900">Premium Vitamin D3 Supplement</h3>
-                  <span
-                    class="bg-cyan-100 text-cyan-600 text-[12px] px-3 py-0.5 rounded-full font-medium tracking-wide">Proposal
-                    Received</span>
+                  <span class="bg-cyan-100 text-cyan-700 text-[12px] px-3 py-1 rounded-full font-medium tracking-wide ring-1 ring-inset ring-cyan-700/10">Proposal Received</span>
                   <span class="text-gray-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -941,9 +947,11 @@
             <!-- /Desktop Card Content -->
           </div>
 
-          <!-- Pagination -->
-          <div
-            class="flex justify-between items-center px-4 py-4 border-t border-gray-100 text-xs text-slate-500 bg-white rounded-b-2xl">
+        </div>
+
+        <!-- Pagination -->
+        <div
+          class="flex justify-between items-center px-4 py-4 border-t border-gray-100 text-xs text-slate-500 bg-white rounded-b-2xl">
             <p>Showing 1 to 5 of 15 results</p>
             <div class="flex items-center gap-1">
               <button class="px-2 py-1 hover:bg-gray-100 rounded">&lt;</button>

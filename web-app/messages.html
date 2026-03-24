@@ -19,7 +19,7 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('chatApp', () => ({
-                activeChat: 1,
+                activeChat: null,
                 newMessage: '',
                 showMobileChat: false,
                 showMenu: false,
@@ -120,7 +120,12 @@
                     }
                 },
                 getActiveChat() {
-                    return this.conversations.find(c => c.id === this.activeChat);
+                    return this.conversations.find(c => c.id === this.activeChat) || {
+                        name: '',
+                        avatar: '',
+                        subject: '',
+                        messages: []
+                    };
                 }
             }))
         })
@@ -373,15 +378,15 @@
                         <h2 class="text-[18px] font-bold text-slate-900 mb-4">Messages</h2>
                         <div class="relative mb-4">
                             <i
-                                class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-base"></i>
+                                class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
                             <input type="text" placeholder="Search..."
-                                class="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 bg-white text-[13px] focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 placeholder:text-slate-400 transition-all shadow-sm">
+                                class="w-full pl-12 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 placeholder:text-slate-400 transition-all shadow-sm">
                         </div>
                         <div class="flex gap-6 relative">
                             <button
-                                class="pb-2.5 px-0.5 text-[13px] font-bold text-blue-600 border-b-2 border-blue-600 -mb-[px]">All(10)</button>
+                                class="pb-2.5 px-0.5 text-[14px] font-bold text-blue-600 border-b-2 border-blue-600 -mb-[px]">All(10)</button>
                             <button
-                                class="pb-2.5 px-0.5 text-[13px] font-medium text-slate-500 hover:text-slate-800 transition-colors">Unread
+                                class="pb-2.5 px-0.5 text-[14px] font-medium text-slate-500 hover:text-slate-800 transition-colors">Unread
                                 (3)</button>
                         </div>
                     </div>
@@ -390,30 +395,30 @@
                     <div class="flex-grow overflow-y-auto">
                         <template x-for="chat in conversations" :key="chat.id">
                             <div @click="selectChat(chat.id)"
-                                class="px-5 py-3 border-b border-gray-100 cursor-pointer transition-all hover:bg-slate-50 relative group"
+                                class="px-5 py-4 border-b border-gray-100 cursor-pointer transition-all hover:bg-slate-50 relative group"
                                 :class="activeChat === chat.id ? 'bg-[#f8faff]' : 'bg-white'">
                                 <!-- Active Indicator -->
                                 <div x-show="activeChat === chat.id"
                                     class="absolute left-0 top-0 bottom-0 w-[3px] bg-blue-600"></div>
 
-                                <div class="flex items-start gap-3.5">
-                                    <div class="w-[40px] h-[40px] rounded-full flex items-center justify-center font-bold text-[14px] flex-shrink-0 bg-[#eff6ff] text-[#3b82f6]"
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-[15px] flex-shrink-0 bg-[#f0f7ff] text-[#3b82f6]"
                                         x-text="chat.avatar"></div>
                                     <div class="flex-grow min-w-0">
-                                        <div class="flex justify-between items-center mb-0.5">
+                                        <div class="flex justify-between items-center mb-1">
                                             <span
-                                                class="text-[10px] text-[#3b82f6] font-medium uppercase tracking-tight"
+                                                class="text-[12px] text-[#3b82f6] font-medium uppercase tracking-tight"
                                                 x-text="chat.ref"></span>
-                                            <span class="text-[10px] text-slate-400" x-text="chat.date"></span>
+                                            <span class="text-[13px] text-slate-400" x-text="chat.date"></span>
                                         </div>
-                                        <h3 class="text-[13px] font-bold text-slate-900 truncate mb-0.5"
+                                        <h3 class="text-[15px] font-bold text-slate-900 truncate mb-1"
                                             x-text="chat.name"></h3>
                                         <div class="flex justify-between items-end gap-2">
-                                            <p class="text-[11px] text-slate-500 truncate leading-relaxed flex-grow"
+                                            <p class="text-[13px] text-slate-500 truncate leading-relaxed flex-grow"
                                                 :class="chat.unread > 0 ? 'text-slate-800 font-medium' : ''"
                                                 x-text="chat.lastMessage"></p>
                                             <div x-show="chat.unread > 0"
-                                                class="bg-blue-600 text-white text-[9px] font-bold min-w-[16px] h-[16px] rounded-full flex items-center justify-center px-1 flex-shrink-0"
+                                                class="bg-blue-600 text-white text-[11px] font-bold min-w-[20px] h-[20px] rounded-full flex items-center justify-center px-1 flex-shrink-0"
                                                 x-text="chat.unread"></div>
                                         </div>
                                     </div>
@@ -426,8 +431,18 @@
                 <!-- Right Chat Area -->
                 <div class="md:flex md:w-2/3 bg-white rounded-xl border border-gray-100 flex-col h-full shadow-sm relative overflow-hidden"
                     :class="showMobileChat ? 'flex' : 'hidden'">
+                    
+                    <!-- Empty State -->
+                    <div x-show="!activeChat" class="flex-grow flex flex-col items-center justify-center p-8 text-center bg-white">
+                        <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="ph ph-chats-teardrop text-[40px] text-blue-500"></i>
+                        </div>
+                        <h3 class="text-[18px] font-bold text-slate-900 mb-2">Your Messages</h3>
+                        <p class="text-[14px] text-slate-500 max-w-[280px]">Select a conversation from the list to start messaging with manufacturers.</p>
+                    </div>
+
                     <!-- Chat Header -->
-                    <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-white z-10">
+                    <div x-show="activeChat" class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-white z-10">
                         <div class="flex items-center gap-4">
                             <button @click="showMobileChat = false"
                                 class="md:hidden text-slate-500 hover:text-slate-700 mr-2">
@@ -478,7 +493,7 @@
                     </div>
 
                     <!-- Messages List -->
-                    <div id="messages-container" class="flex-grow p-8 overflow-y-auto bg-white space-y-6">
+                    <div x-show="activeChat" id="messages-container" class="flex-grow p-8 overflow-y-auto bg-white space-y-6">
                         <template x-for="msg in getActiveChat().messages" :key="msg.id">
                             <div class="flex" :class="msg.sender === 'me' ? 'justify-end' : 'justify-start'">
                                 <div class="max-w-[80%] rounded-2xl p-5 text-[15px] leading-relaxed relative"
@@ -491,7 +506,7 @@
                     </div>
 
                     <!-- Input Area -->
-                    <div class="px-6 py-6 bg-white border-t border-gray-100">
+                    <div x-show="activeChat" class="px-6 py-6 bg-white border-t border-gray-100">
                         <form @submit.prevent="sendMessage" class="flex items-center gap-4">
                             <button type="button"
                                 class="w-[48px] h-[48px] flex items-center justify-center rounded-xl border border-gray-100 text-slate-400 hover:text-blue-600 hover:bg-gray-50 transition-all">
@@ -510,7 +525,6 @@
                 </div>
             </div>
         </main>
-<<<<<<< HEAD
 
         <!-- Footer -->
     <footer class="bg-white border-t border-gray-100 pt-16 pb-8 mt-12 w-full">
@@ -583,129 +597,6 @@
           </div>
         </div>
       </div>
-=======
-    <!-- Desktop Footer -->
-    <footer class="hidden md:block bg-white border-t border-gray-200 py-12 shrink-0 relative mt-10 w-full">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div style="display:flex; flex-direction:row; justify-content:space-between; gap:40px; margin-bottom:40px;">
-                <div style="min-width:220px; max-width:280px; flex-shrink:0;">
-                    <div class="mb-4">
-                        <img src="/logo.svg" alt="Donau AI" class="h-6 w-auto">
-                    </div>
-                    <p class="text-[#475569] text-[13px] leading-relaxed max-w-[280px]">
-                        AI-powered platform connecting brands<br />with manufacturers
-                    </p>
-                </div>
-                <div style="display:flex; flex-direction:row; gap:80px; flex-wrap:nowrap;">
-                    <div class="text-left">
-                        <h4 class="font-bold text-[#0e1726] text-[14px] mb-4">Platform</h4>
-                        <ul class="space-y-[12px] text-[#475569] text-[13px]">
-                            <li><a href="home.html" class="hover:text-[#448ae6] transition-colors">Home</a></li>
-                            <li><a href="brands.html" class="hover:text-[#448ae6] transition-colors">Brands</a></li>
-                            <li><a href="manufacturers.html" class="hover:text-[#448ae6] transition-colors">Manufacturers</a></li>
-                        </ul>
-                    </div>
-                    <div class="text-left">
-                        <h4 class="font-bold text-[#0e1726] text-[14px] mb-4">Company</h4>
-                        <ul class="space-y-[12px] text-[#475569] text-[13px]">
-                            <li><a href="contact.html" class="hover:text-[#448ae6] transition-colors">Contact</a></li>
-                            <li><a href="privacy-policy.html" class="hover:text-[#448ae6] transition-colors">Privacy Policy</a></li>
-                            <li><a href="terms-of-service.html" class="hover:text-[#448ae6] transition-colors">Terms of Service</a></li>
-                        </ul>
-                    </div>
-                    <div class="text-left">
-                        <h4 class="font-bold text-[#0e1726] text-[15px] mb-5">Contact</h4>
-                        <ul class="text-[#0e1726] text-[15px] mb-6">
-                            <li><a href="mailto:info@donauai.com"
-                                    class="hover:text-[#448ae6] transition-colors">info@donauai.com</a></li>
-                        </ul>
-                        <div style="display:flex; align-items:center; gap:16px;">
-                            <a href="#"
-                                class="w-[42px] h-[42px] rounded-full bg-[#f1f5f9] flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i
-                                    class="fa-brands fa-facebook-f text-[19px]"></i></a>
-                            <a href="#"
-                                class="w-[42px] h-[42px] rounded-full bg-[#f1f5f9] flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i
-                                    class="fa-brands fa-instagram text-[23px]"></i></a>
-                            <a href="#"
-                                class="w-[42px] h-[42px] rounded-full bg-[#f1f5f9] flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i
-                                    class="fa-brands fa-linkedin-in text-[19px]"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-200 pt-6" style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
-                <p class="text-[13px] text-[#64748b]">&copy; 2026 DonauApp</p>
-                <div style="display:flex; align-items:center; gap:6px; cursor:pointer;" class="text-[13px] text-[#64748b] hover:text-[#0e1726]">
-                    <i class="ph ph-globe text-[16px]"></i>
-                    <span>English</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Mobile Accordion Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 mt-0 md:hidden w-full shrink-0 relative">
-        <!-- Brand / Slogan -->
-        <div class="px-4 py-8 bg-white text-center border-b border-gray-200 flex flex-col items-center">
-            <img src="/logo.svg" alt="Donau AI" class="h-6 w-auto mb-3">
-            <p class="text-[#64748b] text-[13px] leading-relaxed max-w-[280px]">
-                AI-powered platform connecting brands with manufacturers
-            </p>
-        </div>
-        
-        <!-- Accordions -->
-        <div class="bg-white">
-            <div class="border-b border-gray-100">
-                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')" class="w-full py-4 px-4 flex justify-between items-center font-bold text-[#0e1726] text-[15px]">
-                    Platform <i class="ph ph-caret-down text-lg transition-transform duration-200"></i>
-                </button>
-                <ul class="hidden px-4 pb-4 space-y-3 text-[#475569] text-[14px] text-left">
-                    <li><a href="home.html" class="block py-1 hover:text-[#448ae6] transition-colors">Home</a></li>
-                    <li><a href="brands.html" class="block py-1 hover:text-[#448ae6] transition-colors">Brands</a></li>
-                    <li><a href="manufacturers.html" class="block py-1 hover:text-[#448ae6] transition-colors">Manufacturers</a></li>
-                </ul>
-            </div>
-            
-            <div class="border-b border-gray-100">
-                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')" class="w-full py-4 px-4 flex justify-between items-center font-bold text-[#0e1726] text-[15px]">
-                    Company <i class="ph ph-caret-down text-lg transition-transform duration-200"></i>
-                </button>
-                <ul class="hidden px-4 pb-4 space-y-3 text-[#475569] text-[14px] text-left">
-                    <li><a href="contact.html" class="block py-1 hover:text-[#448ae6] transition-colors">Contact</a></li>
-                    <li><a href="privacy-policy.html" class="block py-1 hover:text-[#448ae6] transition-colors">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html" class="block py-1 hover:text-[#448ae6] transition-colors">Terms of Service</a></li>
-                </ul>
-            </div>
-            
-            <div class="border-b border-gray-100">
-                <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')" class="w-full py-4 px-4 flex justify-between items-center font-bold text-[#0e1726] text-[15px]">
-                    Support <i class="ph ph-caret-down text-lg transition-transform duration-200"></i>
-                </button>
-                <ul class="hidden px-4 pb-4 space-y-3 text-[#475569] text-[14px] text-left">
-                    <li><a href="mailto:info@donauai.com" class="block py-1 hover:text-[#448ae6] transition-colors">info@donauai.com</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Bottom section -->
-        <div class="bg-gray-50 flex flex-col items-center py-8 gap-6">
-             <p class="text-[13px] text-[#64748b] w-full text-center px-8">&copy; 2026 DonauApp</p>
-            <div class="flex items-center gap-[16px]">
-                <a href="#" class="w-[42px] h-[42px] rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i class="fa-brands fa-facebook-f text-[19px]"></i></a>
-                <a href="#" class="w-[42px] h-[42px] rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i class="fa-brands fa-instagram text-[23px]"></i></a>
-                <a href="#" class="w-[42px] h-[42px] rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0e1726] hover:bg-[#e2e8f0] transition-colors"><i class="fa-brands fa-linkedin-in text-[19px]"></i></a>
-            </div>
-            <div class="flex items-center justify-center w-full px-8 text-[13px] text-[#0e1726]">
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-[6px]">
-                        <i class="ph ph-globe text-[16px]"></i>
-                        <span>English</span>
-                    </div>
-                    <span>EUR</span>
-                </div>
-            </div>
-        </div>
->>>>>>> ceca334 (Refine dashboard consistency, mobile responsiveness, and project updates)
-    </footer>
     </div>
 
 
